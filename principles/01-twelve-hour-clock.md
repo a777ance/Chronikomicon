@@ -12,6 +12,20 @@ The clock is not a timeline. It is a *position*. Each hour is a location — wit
 
 ---
 
+## The Hours as Dispensations
+
+Each hour is a **Dispensation** — a period governed by its own internal logic, its own rules, its own felt duration.
+
+A Dispensation is not a unit of page-count. It is an *era*. One Dispensation may be vast — sprawling, dense, slow-burning. Another may be a single paragraph, a gesture, a breath. The clock gives each hour a *position*; the Dispensation gives it *character*.
+
+This means:
+
+- **Duration is felt, not measured.** A chapter at 11 could be the longest in the book. A chapter at 6 could be one page.
+- **Each Dispensation has its own governing logic.** What is true inside one hour may not hold in the next.
+- **Dispensations can be superseded.** When the hour turns, the rules can change completely.
+
+---
+
 ## Properties (to be developed)
 
 - **12 positions, not 12 steps.** The structure is circular, not linear. The end is adjacent to the beginning.
@@ -28,3 +42,4 @@ The clock is not a timeline. It is a *position*. Each hour is a location — wit
 - Does the cycle represent a single day? A lifetime? A civilization? All simultaneously?
 - Is there a narrator who knows they are inside a clock — or is the structure invisible to the characters?
 - What happens at the pivot hours — do they function as hinge chapters, or as silences?
+- Does each Dispensation announce its own rules — or are the rules discovered from inside?
