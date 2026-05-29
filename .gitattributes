@@ -1,0 +1,10 @@
+# Normalize line endings across platforms
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+
+# Scripture reference files — committed once, never modified (Sola Scriptura)
+reference/scripture/kjv.txt text eol=lf

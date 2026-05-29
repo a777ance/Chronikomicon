@@ -12,11 +12,11 @@ Artwork files are separate and do not alter the text.
 
 | File | Version | Status |
 |------|---------|--------|
-| `kjv.txt` | King James Version (1611) | Public domain |
-| `asv.txt` | American Standard Version (1901) | Public domain |
-| `web.txt` | World English Bible | Public domain |
+| `kjv.txt` | King James Version (1611) | **Committed — do not modify** |
 
-Run `download.py` to populate these files locally, then commit.
+KJV is the primary and sole committed translation. 31,100 verses. 66 books. Public domain.
+
+ASV (1901) and WEB were planned as secondary versions but reliable source files could not be located. KJV is sufficient as the canonical reference.
 
 ---
 

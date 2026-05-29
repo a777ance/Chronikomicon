@@ -39,8 +39,19 @@ The GitHub Actions word count check runs automatically on every push to `main`.
 
 ## Session log
 
-Optional. One line per session.
-
 | Date | Words written | Notes |
 |------|--------------|-------|
 | — | — | — |
+
+---
+
+## Setup status
+
+| Item | Status |
+|------|--------|
+| Repo cloned locally | done |
+| Git identity configured | done |
+| SSH key added to GitHub | done |
+| `kjv.txt` committed | **done — 31,100 verses, sealed** |
+| VS Code workspace open | pending |
+| First chapter started | pending |
