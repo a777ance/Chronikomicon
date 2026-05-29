@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    // --- Essential for writing ---
+    // Spell checking
+    "streetsidesoftware.code-spell-checker",
+    // Markdown: TOC, shortcuts, preview, formatting
+    "yzhang.markdown-all-in-one",
+    // Richer markdown preview (supports footnotes, diagrams, etc.)
+    "shd101wyy.markdown-preview-enhanced",
+    // Word count in the status bar
+    "ms-vscode.wordcount",
+    // Reflow and hard-wrap paragraphs (Alt+Q)
+    "stkb.rewrap",
+
+    // --- Git and version control ---
+    // Inline blame, history, branch management
+    "eamodio.gitlens",
+    // Review PRs without leaving VS Code
+    "GitHub.vscode-pull-request-github",
+
+    // --- Claude Code ---
+    // The writing assistant itself
+    "anthropic.claude-code"
+  ]
+}
