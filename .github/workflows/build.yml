@@ -1,0 +1,72 @@
+name: Build Manuscript
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'manuscript/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pandoc
+        run: sudo apt-get install -y pandoc
+
+      # -----------------------------------------------------------
+      # Assemble chapters in filename order.
+      # Chapter files should be named: manuscript/chapters/01-title.md
+      # The numeric prefix controls reading order.
+      # -----------------------------------------------------------
+
+      - name: Assemble manuscript
+        run: |
+          mkdir -p build
+          # Concatenate all chapter files in order
+          for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do
+            cat "$f"
+            echo
+          done > build/chronikon-assembled.md
+
+      - name: Build PDF
+        run: |
+          pandoc build/chronikon-assembled.md \
+            --pdf-engine=weasyprint \
+            -o build/chronikon.pdf \
+            --metadata title="Chronikon" \
+            --metadata author="Chronikon" || \
+          pandoc build/chronikon-assembled.md \
+            -o build/chronikon.pdf \
+            --metadata title="Chronikon"
+
+      - name: Build epub
+        run: |
+          pandoc build/chronikon-assembled.md \
+            -o build/chronikon.epub \
+            --metadata title="Chronikon"
+
+      - name: Build HTML
+        run: |
+          pandoc build/chronikon-assembled.md \
+            -o build/chronikon.html \
+            --standalone \
+            --metadata title="Chronikon"
+
+      # -----------------------------------------------------------
+      # Upload all built formats as a downloadable artifact.
+      # Retrieve from: repo → Actions → latest run → Artifacts.
+      # -----------------------------------------------------------
+
+      - name: Upload manuscript artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: chronikon-manuscript
+          path: |
+            build/chronikon.pdf
+            build/chronikon.epub
+            build/chronikon.html
+          retention-days: 30

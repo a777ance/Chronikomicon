@@ -1,0 +1,20 @@
+# Build output (local pandoc runs)
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Secrets / env
+.env
+secrets/
+
+# Note: reference/scripture/*.txt are NOT ignored.
+# They are committed once after running download.py and never modified.

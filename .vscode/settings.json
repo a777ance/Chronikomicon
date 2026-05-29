@@ -1,0 +1,67 @@
+{
+  // --- Prose writing defaults ---
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 80,
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "none",
+  "editor.scrollBeyondLastLine": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.fontSize": 16,
+  "editor.lineHeight": 30,
+  "editor.letterSpacing": 0.3,
+  "editor.padding.top": 24,
+  "editor.glyphMargin": false,
+  "editor.folding": false,
+  "editor.overviewRulerLanes": 0,
+  "workbench.activityBar.location": "hidden",
+  "breadcrumbs.enabled": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "explorer.openEditors.visible": 0,
+  "explorer.compactFolders": false,
+
+  // --- Hide technical scaffolding from the Explorer ---
+  // Writers don't need to see CI config, gitignore, etc.
+  // All of this is still in the repo; it's just not shown in the sidebar.
+  "files.exclude": {
+    ".github": true,
+    ".gitignore": true,
+    ".gitkeep": true,
+    "LICENSE": true
+  },
+
+  // --- Markdown-specific overrides ---
+  "[markdown]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.quickSuggestions": {
+      "other": false,
+      "comments": false,
+      "strings": false
+    },
+    "editor.snippetSuggestions": "none",
+    "editor.tabSize": 2
+  },
+
+  // --- Spell check ---
+  "cSpell.enabled": true,
+  "cSpell.language": "en",
+  "cSpell.ignoreWords": [
+    "Chronikon",
+    "Chronikomicon",
+    "Dispensation",
+    "Dispensations"
+  ],
+
+  // --- File associations ---
+  "files.associations": {
+    "*.md": "markdown"
+  },
+
+  // --- Git ---
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true
+}

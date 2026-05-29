@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Manuscript (PDF)",
+      "type": "shell",
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - -o build/chronikon.pdf --metadata title=\"Chronikon\"",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build Manuscript (epub)",
+      "type": "shell",
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - -o build/chronikon.epub --metadata title=\"Chronikon\"",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Preview Manuscript (HTML)",
+      "type": "shell",
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - -o build/chronikon.html --standalone --metadata title=\"Chronikon\" && open build/chronikon.html || start build/chronikon.html",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

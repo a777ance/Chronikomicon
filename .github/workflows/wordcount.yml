@@ -1,0 +1,44 @@
+name: Word Count
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'manuscript/chapters/**'
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Count words and report progress
+        run: |
+          TARGET=40000
+
+          if ls manuscript/chapters/*.md 1>/dev/null 2>&1; then
+            TOTAL=$(cat manuscript/chapters/*.md | wc -w)
+          else
+            TOTAL=0
+          fi
+
+          REMAINING=$((TARGET - TOTAL))
+          PCT=$((TOTAL * 100 / TARGET))
+
+          # Progress bar (50 chars wide)
+          FILLED=$((PCT / 2))
+          EMPTY=$((50 - FILLED))
+          BAR=$(printf '#%.0s' $(seq 1 $FILLED 2>/dev/null || echo ""))$(printf '.%.0s' $(seq 1 $EMPTY 2>/dev/null || echo ""))
+
+          echo "## Chronikon — Word Count" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`[$BAR] $PCT%\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Words written | $TOTAL |" >> $GITHUB_STEP_SUMMARY
+          echo "| Target | $TARGET |" >> $GITHUB_STEP_SUMMARY
+          echo "| Remaining | $REMAINING |" >> $GITHUB_STEP_SUMMARY
+          echo "| Progress | $PCT% |" >> $GITHUB_STEP_SUMMARY

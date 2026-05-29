@@ -1,0 +1,69 @@
+{
+  // Open this file in VS Code to get the writer's view of the repo.
+  // File > Open Workspace from File... > Chronikon.code-workspace
+  "folders": [
+    {
+      "name": "Manuscript",
+      "path": "manuscript/chapters"
+    },
+    {
+      "name": "Theory",
+      "path": "principles"
+    },
+    {
+      "name": "Reference",
+      "path": "reference"
+    },
+    {
+      "name": "Progress",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.lineNumbers": "off",
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 30,
+    "editor.letterSpacing": 0.3,
+    "editor.padding.top": 24,
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "workbench.activityBar.location": "hidden",
+    "breadcrumbs.enabled": false,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "explorer.openEditors.visible": 0,
+    "[markdown]": {
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 80,
+      "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+      }
+    },
+    "cSpell.enabled": true,
+    "cSpell.language": "en",
+    "cSpell.ignoreWords": [
+      "Chronikon",
+      "Chronikomicon",
+      "Dispensation",
+      "Dispensations"
+    ]
+  },
+  "extensions": {
+    "recommendations": [
+      "streetsidesoftware.code-spell-checker",
+      "yzhang.markdown-all-in-one",
+      "shd101wyy.markdown-preview-enhanced",
+      "ms-vscode.wordcount",
+      "stkb.rewrap",
+      "eamodio.gitlens",
+      "anthropic.claude-code"
+    ]
+  }
+}
