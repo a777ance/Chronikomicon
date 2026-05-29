@@ -12,19 +12,25 @@
   "editor.lineHeight": 30,
   "editor.letterSpacing": 0.3,
   "editor.padding.top": 24,
-
-  // --- Focus ---
   "editor.glyphMargin": false,
   "editor.folding": false,
   "editor.overviewRulerLanes": 0,
-  "editor.hideCursorInOverviewRuler": true,
-  "workbench.statusBar.visible": true,
   "workbench.activityBar.location": "hidden",
   "breadcrumbs.enabled": false,
-
-  // --- Auto save ---
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 1000,
+  "explorer.openEditors.visible": 0,
+  "explorer.compactFolders": false,
+
+  // --- Hide technical scaffolding from the Explorer ---
+  // Writers don't need to see CI config, gitignore, etc.
+  // All of this is still in the repo; it's just not shown in the sidebar.
+  "files.exclude": {
+    ".github": true,
+    ".gitignore": true,
+    ".gitkeep": true,
+    "LICENSE": true
+  },
 
   // --- Markdown-specific overrides ---
   "[markdown]": {
@@ -39,7 +45,7 @@
     "editor.tabSize": 2
   },
 
-  // --- Spell check (Code Spell Checker extension) ---
+  // --- Spell check ---
   "cSpell.enabled": true,
   "cSpell.language": "en",
   "cSpell.ignoreWords": [
@@ -54,11 +60,8 @@
     "*.md": "markdown"
   },
 
-  // --- Explorer: clean view for writers ---
-  "explorer.compactFolders": false,
-  "explorer.openEditors.visible": 0,
-
   // --- Git ---
   "git.autofetch": true,
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true
 }
