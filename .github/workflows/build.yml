@@ -20,7 +20,7 @@ jobs:
       - name: Assemble chapters
         run: |
           mkdir -p build
-          for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do
+          for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort | grep -v TEMPLATE); do
             cat "$f"
             echo
           done > build/chronikon-assembled.md
@@ -45,7 +45,7 @@ jobs:
           pandoc build/chronikon-assembled.md \
             --metadata-file=manuscript/metadata.yaml \
             --standalone \
-            --css=build/chronikon.css \
+            --css=manuscript/styles/chronikon.css \
             -o build/chronikon.html
 
       - name: Upload artifacts

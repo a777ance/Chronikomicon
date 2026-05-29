@@ -4,25 +4,22 @@
     {
       "label": "Build Manuscript (PDF)",
       "type": "shell",
-      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml -o build/chronikon.pdf",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort | grep -v TEMPLATE); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml -o build/chronikon.pdf",
+      "group": { "kind": "build", "isDefault": true },
       "presentation": { "reveal": "silent", "panel": "shared" },
       "problemMatcher": []
     },
     {
       "label": "Build Manuscript (epub)",
       "type": "shell",
-      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml -o build/chronikon.epub",
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort | grep -v TEMPLATE); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml -o build/chronikon.epub",
       "presentation": { "reveal": "silent", "panel": "shared" },
       "problemMatcher": []
     },
     {
       "label": "Preview Manuscript (HTML)",
       "type": "shell",
-      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml --standalone --css=build/chronikon.css -o build/chronikon.html && start build/chronikon.html",
+      "command": "mkdir -p build && for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort | grep -v TEMPLATE); do cat \"$f\"; echo; done | pandoc - --metadata-file=manuscript/metadata.yaml --standalone --css=manuscript/styles/chronikon.css -o build/chronikon.html && start build/chronikon.html",
       "presentation": { "reveal": "silent", "panel": "shared" },
       "problemMatcher": []
     }
