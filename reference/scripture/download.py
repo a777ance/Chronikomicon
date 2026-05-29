@@ -31,10 +31,10 @@ ABBREV_MAP = {
     "jd": "JUD", "rv": "REV"
 }
 
+# KJV is the primary reference (Sola Scriptura).
+# ASV and WEB can be added later if a reliable source is found.
 SOURCES = {
     "kjv": "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_kjv.json",
-    "asv": "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_asv.json",
-    "web": "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_web.json",
 }
 
 
@@ -42,7 +42,9 @@ def fetch(url):
     print(f"  Fetching {url}")
     r = requests.get(url, timeout=60)
     r.raise_for_status()
-    return r.json()
+    # Decode with utf-8-sig to silently strip the UTF-8 BOM if present
+    text = r.content.decode("utf-8-sig")
+    return json.loads(text)
 
 
 def convert(data):
@@ -74,9 +76,9 @@ def main():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(formatted)
             verse_count = formatted.count("\n")
-            print(f"  Written: {out_path} ({verse_count:,} verses)")
+            print(f"  Done: {out_path} ({verse_count:,} verses)")
         except Exception as e:
-            print(f"  ERROR downloading {name.upper()}: {e}", file=sys.stderr)
+            print(f"  ERROR: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":
