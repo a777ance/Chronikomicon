@@ -13,12 +13,15 @@ import sys
 
 OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Mapping from thiagobodruk/bible abbreviations to standard 3-letter codes
+# Mapping from thiagobodruk/bible abbreviations to standard 3-letter codes.
+# Includes both standard and alternate abbreviations used by the source.
 ABBREV_MAP = {
     "gn": "GEN", "ex": "EXO", "lv": "LEV", "nm": "NUM", "dt": "DEU",
     "js": "JOS", "jud": "JDG", "rt": "RUT", "1sm": "1SA", "2sm": "2SA",
     "1kgs": "1KI", "2kgs": "2KI", "1ch": "1CH", "2ch": "2CH", "ezr": "EZR",
-    "ne": "NEH", "et": "EST", "jb": "JOB", "ps": "PSA", "prv": "PRO",
+    "ne": "NEH", "et": "EST",
+    "jb": "JOB",  "job": "JOB",   # source uses 'job'
+    "ps": "PSA", "prv": "PRO",
     "ec": "ECC", "so": "SNG", "is": "ISA", "jr": "JER", "lm": "LAM",
     "ez": "EZK", "dn": "DAN", "ho": "HOS", "jl": "JOL", "am": "AMO",
     "ob": "OBA", "jn": "JON", "mi": "MIC", "na": "NAH", "hk": "HAB",
@@ -28,11 +31,10 @@ ABBREV_MAP = {
     "ph": "PHP", "cl": "COL", "1ts": "1TH", "2ts": "2TH", "1tm": "1TI",
     "2tm": "2TI", "tt": "TIT", "phm": "PHM", "hb": "HEB", "jm": "JAS",
     "1pe": "1PE", "2pe": "2PE", "1jo": "1JN", "2jo": "2JN", "3jo": "3JN",
-    "jd": "JUD", "rv": "REV"
+    "jd": "JUD",
+    "rv": "REV",  "re": "REV",   # source uses 're'
 }
 
-# KJV is the primary reference (Sola Scriptura).
-# ASV and WEB can be added later if a reliable source is found.
 SOURCES = {
     "kjv": "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_kjv.json",
 }
@@ -42,8 +44,7 @@ def fetch(url):
     print(f"  Fetching {url}")
     r = requests.get(url, timeout=60)
     r.raise_for_status()
-    # Decode with utf-8-sig to silently strip the UTF-8 BOM if present
-    text = r.content.decode("utf-8-sig")
+    text = r.content.decode("utf-8-sig")  # strips UTF-8 BOM if present
     return json.loads(text)
 
 
@@ -67,7 +68,7 @@ def main():
     for name, url in SOURCES.items():
         out_path = os.path.join(OUTPUT_DIR, f"{name}.txt")
         if os.path.exists(out_path):
-            print(f"  {name}.txt already exists, skipping.")
+            print(f"  {name}.txt already exists. Delete it to re-download.")
             continue
         print(f"Downloading {name.upper()}...")
         try:
