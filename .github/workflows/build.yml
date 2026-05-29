@@ -17,16 +17,9 @@ jobs:
       - name: Install pandoc
         run: sudo apt-get install -y pandoc
 
-      # -----------------------------------------------------------
-      # Assemble chapters in filename order.
-      # Chapter files should be named: manuscript/chapters/01-title.md
-      # The numeric prefix controls reading order.
-      # -----------------------------------------------------------
-
-      - name: Assemble manuscript
+      - name: Assemble chapters
         run: |
           mkdir -p build
-          # Concatenate all chapter files in order
           for f in $(ls manuscript/chapters/*.md 2>/dev/null | sort); do
             cat "$f"
             echo
@@ -35,33 +28,27 @@ jobs:
       - name: Build PDF
         run: |
           pandoc build/chronikon-assembled.md \
-            --pdf-engine=weasyprint \
-            -o build/chronikon.pdf \
-            --metadata title="Chronikon" \
-            --metadata author="Chronikon" || \
+            --metadata-file=manuscript/metadata.yaml \
+            -o build/chronikon.pdf || \
           pandoc build/chronikon-assembled.md \
-            -o build/chronikon.pdf \
-            --metadata title="Chronikon"
+            --metadata title="Chronikon" \
+            -o build/chronikon.pdf
 
       - name: Build epub
         run: |
           pandoc build/chronikon-assembled.md \
-            -o build/chronikon.epub \
-            --metadata title="Chronikon"
+            --metadata-file=manuscript/metadata.yaml \
+            -o build/chronikon.epub
 
       - name: Build HTML
         run: |
           pandoc build/chronikon-assembled.md \
-            -o build/chronikon.html \
+            --metadata-file=manuscript/metadata.yaml \
             --standalone \
-            --metadata title="Chronikon"
+            --css=build/chronikon.css \
+            -o build/chronikon.html
 
-      # -----------------------------------------------------------
-      # Upload all built formats as a downloadable artifact.
-      # Retrieve from: repo → Actions → latest run → Artifacts.
-      # -----------------------------------------------------------
-
-      - name: Upload manuscript artifacts
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: chronikon-manuscript

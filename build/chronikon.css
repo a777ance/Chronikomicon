@@ -1,0 +1,94 @@
+/* Chronikon — HTML manuscript styles */
+
+:root {
+  --text: #1a1a1a;
+  --bg: #faf8f4;
+  --accent: #5a4a3a;
+  --max-width: 680px;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Chapter headings */
+h1 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 5rem 0 3rem;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+  margin: 3rem 0 2rem;
+  color: var(--accent);
+}
+
+/* Paragraph rhythm */
+p {
+  margin: 0;
+  text-indent: 1.5em;
+}
+
+p:first-of-type,
+h1 + p,
+h2 + p {
+  text-indent: 0;
+}
+
+/* Section breaks */
+hr {
+  border: none;
+  text-align: center;
+  margin: 2.5rem 0;
+}
+
+hr::after {
+  content: '⁂';
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+/* Block quotes (for scripture) */
+blockquote {
+  margin: 1.5rem 2rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  font-style: italic;
+  color: #444;
+}
+
+blockquote p {
+  text-indent: 0;
+}
+
+/* Title page */
+h1.title {
+  font-size: 2rem;
+  margin-top: 8rem;
+  letter-spacing: 0.3em;
+}
+
+p.author, p.date {
+  text-align: center;
+  text-indent: 0;
+  color: var(--accent);
+}

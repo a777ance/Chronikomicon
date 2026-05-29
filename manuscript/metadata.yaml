@@ -1,0 +1,30 @@
+---
+title: Chronikon
+author: ""
+date: ""
+
+# PDF / LaTeX settings
+documentclass: book
+classoption:
+  - openany
+geometry:
+  - top=1.5in
+  - bottom=1.5in
+  - left=1.5in
+  - right=1.25in
+fontsize: 12pt
+linestretch: 1.6
+mainfont: Georgia
+monofont: Courier New
+colorlinks: false
+linkcolor: black
+
+# Suppress automatic section numbering
+numbersections: false
+
+# Page headers/footers
+header-includes:
+  - \pagestyle{plain}
+  - \setlength{\parindent}{1.5em}
+  - \setlength{\parskip}{0pt}
+---
