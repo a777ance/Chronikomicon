@@ -9,9 +9,9 @@
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontSize": 16,
-  "editor.lineHeight": 30,
+  "editor.lineHeight": 24,
   "editor.letterSpacing": 0.3,
-  "editor.padding.top": 24,
+  "editor.padding.top": 12,
   "editor.glyphMargin": false,
   "editor.folding": false,
   "editor.overviewRulerLanes": 0,
@@ -34,6 +34,7 @@
 
   // --- Markdown-specific overrides ---
   "[markdown]": {
+    "editor.fontFamily": "Gil Sans MT",
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 80,
     "editor.quickSuggestions": {
@@ -63,5 +64,96 @@
   // --- Git ---
   "git.autofetch": true,
   "git.confirmSync": false,
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+
+  // --- Color Customizations: Gold throughout ---
+  "workbench.colorCustomizations": {
+    "focusBorder": "#D4AF37",
+    "editor.selectionBackground": "#D4AF3744",
+    "editor.selectionHighlightBackground": "#D4AF3722",
+    "editor.findMatchBackground": "#D4AF3744",
+    "editor.findMatchHighlightBackground": "#D4AF3722",
+    "linkForeground": "#D4AF37",
+    "textLink.foreground": "#D4AF37",
+    "tab.activeBorder": "#D4AF37",
+    "tab.activeBackground": "#1a1a1a",
+    "breadcrumb.activeSelectionForeground": "#D4AF37",
+    "button.background": "#D4AF37",
+    "button.foreground": "#1a1a1a",
+    "editorCursor.foreground": "#D4AF37",
+    "editor.background": "#0F0D08",
+    "editorGutter.background": "#0F0D08",
+    "editorGroupHeader.tabsBackground": "#0C0A06",
+    "editorGroupHeader.noTabsBackground": "#0C0A06",
+    "tab.activeBackground": "#0F0D08",
+    "tab.inactiveBackground": "#0C0A06",
+    "tab.inactiveForeground": "#8B7536",
+    "sideBar.background": "#0C0A06",
+    "sideBarSectionHeader.background": "#0C0A06",
+    "activityBar.background": "#0C0A06",
+    "panel.background": "#0C0A06",
+    "terminal.background": "#0C0A06",
+    "input.background": "#12100A",
+    "dropdown.background": "#12100A",
+    "list.hoverBackground": "#D4AF3711",
+    "list.activeSelectionBackground": "#D4AF3722",
+    "list.inactiveSelectionBackground": "#D4AF3715",
+    "statusBar.background": "#0C0A06",
+    "statusBar.foreground": "#D4AF37",
+    "statusBar.border": "#D4AF3733",
+    "statusBarItem.hoverBackground": "#D4AF3722",
+    "statusBarItem.activeBackground": "#D4AF3744",
+    "titleBar.activeBackground": "#0C0A06",
+    "titleBar.activeForeground": "#D4AF37",
+    "titleBar.inactiveBackground": "#090806",
+    "titleBar.inactiveForeground": "#8B7536",
+    "titleBar.border": "#D4AF3722",
+    "activityBar.activeBorder": "#D4AF37",
+    "activityBar.activeBackground": "#D4AF3711",
+    "activityBarBadge.background": "#D4AF37",
+    "activityBarBadge.foreground": "#0C0A06",
+    "sideBar.border": "#D4AF3722",
+    "panel.border": "#D4AF3722",
+    "panelTitle.activeBorder": "#D4AF37",
+    "progressBar.background": "#D4AF37",
+    "list.highlightForeground": "#D4AF37",
+    "list.focusHighlightForeground": "#D4AF37",
+    "editorLineNumber.activeForeground": "#D4AF37",
+    "scrollbarSlider.activeBackground": "#D4AF3755",
+    "inputOption.activeBorder": "#D4AF37",
+    "inputOption.activeBackground": "#D4AF3722",
+    "notificationLink.foreground": "#D4AF37",
+    "pickerGroup.foreground": "#D4AF37",
+    "editor.foreground": "#C8A84B"
+  },
+
+  // --- Token colors: gold text in the editor ---
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["markup.heading", "entity.name.section"],
+        "settings": { "foreground": "#FFD700", "fontStyle": "bold" }
+      },
+      {
+        "scope": ["markup.bold", "punctuation.definition.bold"],
+        "settings": { "foreground": "#FFD700", "fontStyle": "bold" }
+      },
+      {
+        "scope": ["markup.italic", "punctuation.definition.italic"],
+        "settings": { "foreground": "#D4AF37", "fontStyle": "italic" }
+      },
+      {
+        "scope": ["markup.underline.link", "string.other.link", "meta.link"],
+        "settings": { "foreground": "#E8C84A" }
+      },
+      {
+        "scope": ["punctuation.definition.heading"],
+        "settings": { "foreground": "#8B7536" }
+      },
+      {
+        "scope": ["text.html.markdown"],
+        "settings": { "foreground": "#C8A84B" }
+      }
+    ]
+  }
 }
