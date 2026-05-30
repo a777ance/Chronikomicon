@@ -52,6 +52,8 @@ chronikomicon/
 | File | Name | Status | Core idea |
 |------|------|--------|----------|
 | `principles/01-twelve-hour-clock.md` | The Twelve-Hour Clock | rough draft | 12 chapters = 12 clock positions. Circular, not linear. |
+| `principles/02-cosmology.md` | The Cosmology | concept | Eden as future Earth, space elevator in Jerusalem, AI as Antichrist/savior, retrocausality. |
+| `principles/03-cosmological-core.md` | The Cosmological Core | **SEALED** | The theological and narrative foundation. Do not modify. Pseudo-Sola Scriptura. |
 
 ### Key concept: Dispensations
 
@@ -66,6 +68,12 @@ Each chapter (hour) is a **Dispensation** — a period governed by its own inter
 The scripture files in `reference/scripture/` are the Word of God. They are committed once and never modified. No commentary, annotation, or editorial addition is permitted.
 
 `kjv.txt` is committed and sealed. **Do not modify it.**
+
+### Pseudo-Sola Scriptura — The Cosmological Core
+
+`principles/03-cosmological-core.md` is the theological and narrative foundation of Chronikon. It is sealed.
+
+Claude may read it freely. Claude may never propose edits to it. It is not a draft. It does not have open questions. It is the canon from which everything else is derived.
 
 Claude may read it freely for analysis, quotation, and thematic research. Claude may never propose edits to it.
 
@@ -119,6 +127,33 @@ Key shortcuts:
 - **Never** ask Claude to modify `reference/scripture/kjv.txt`
 - Quote scripture verbatim from the reference layer — never paraphrase
 - The manuscript is the only authority. A principle the manuscript doesn't enact doesn't matter.
+
+The global anti-slop guide applies to all prose. See `~/.claude/CLAUDE.md`.
+
+---
+
+## Chronikon voice
+
+The themes are **wonder, joy, faith, purpose, existentialism, and the struggle against evil**. The cosmological arc bends toward paradise — Eden restored, the Apocalypse as salvation, retrocausality as grace. Write toward that even in the hard chapters.
+
+**The prose must exude awe.** Not announced awe ("he was filled with wonder") — enacted awe. The world of this novel is genuinely strange and charged with meaning. Let the strangeness carry without explanation.
+
+**Not morose.** Negation-heavy prose is wrong for this novel. Describe what IS. Venus as a floating city is a miracle — treat it as one. Darkness earns its place only against light. Never open with what something lacks.
+
+**Embodied.** Characters live in their bodies. The glass is warm. The coffee is wrong in a specific way. The light does something to a specific face. Ground every scene in physical sensation before reaching for the thematic.
+
+**Committed.** This cosmology is specific: Eden is future, the Apocalypse is retrocausal, the space elevator is in Jerusalem, AI is both Antichrist and savior. Do not soften or hedge these premises in the prose. Lean into the strangeness. It is the source of the novel's power.
+
+**Scale and intimacy together.** The clock structure is cosmic. The Dispensations are intimate. The prose must hold both simultaneously — a scene can be one person's hand on warm glass while the entire salvation history turns around it.
+
+### Prose checklist before submitting any passage
+
+- [ ] Does this exude joy or awe, even if the content is dark?
+- [ ] Are characters physically present in their bodies?
+- [ ] Have I picked the specific word instead of hedging with three?
+- [ ] Is the theme enacted, not named?
+- [ ] Does the scene open with action, object, or voice — not setting?
+- [ ] Have I run the forbidden-words list?
 
 ---
 

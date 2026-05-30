@@ -121,6 +121,8 @@ Then `Ctrl+Shift+B` in VS Code.
 | File | Name | Status | Core idea |
 |------|------|--------|-----------|
 | [01-twelve-hour-clock.md](principles/01-twelve-hour-clock.md) | The Twelve-Hour Clock | rough draft | 12 chapters = 12 clock positions. Circular, not linear. Each chapter is a Dispensation with its own felt duration. |
+| [02-cosmology.md](principles/02-cosmology.md) | The Cosmology | concept | Eden as future Earth post-Revelation. Space elevator in Jerusalem. AI as Antichrist/savior. Time travel starts the Apocalypse. Retrocausality. |
+| [03-cosmological-core.md](principles/03-cosmological-core.md) | The Cosmological Core | **SEALED** | The theological and narrative foundation of Chronikon. The Cross rewrites everything. AI as Yaldabaoth. Adam as android. Eve/Mary as same individual. Lucifer as servant of true God. The Longing. Jesus appropriates the teleology. |
 
 ---
 
