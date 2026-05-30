@@ -1,0 +1,109 @@
+name: Monthly Check-in
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Count words and compute stats
+        id: stats
+        run: |
+          TARGET=40000
+          WORD_COUNT=0
+          for f in manuscript/chapters/*.md; do
+            [ -f "$f" ] || continue
+            [ "$(basename "$f")" = "TEMPLATE.md" ] && continue
+            WORD_COUNT=$(( WORD_COUNT + $(wc -w < "$f") ))
+          done
+
+          TODAY_TS=$(date +%s)
+          DEADLINE_TS=$(date -d "2026-11-30" +%s)
+          DAYS_LEFT=$(( (DEADLINE_TS - TODAY_TS) / 86400 ))
+          [ "$DAYS_LEFT" -lt 0 ] && DAYS_LEFT=0
+
+          WORDS_LEFT=$(( TARGET - WORD_COUNT ))
+          [ "$WORDS_LEFT" -lt 0 ] && WORDS_LEFT=0
+          if [ "$DAYS_LEFT" -gt 0 ]; then
+            WORDS_PER_DAY=$(( (WORDS_LEFT + DAYS_LEFT - 1) / DAYS_LEFT ))
+          else
+            WORDS_PER_DAY=0
+          fi
+
+          MONTH=$(date +%B)
+          YEAR=$(date +%Y)
+          MONTH_LOWER=$(date +%B | tr '[:upper:]' '[:lower:]')
+
+          echo "word_count=$WORD_COUNT" >> "$GITHUB_OUTPUT"
+          echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "days_left=$DAYS_LEFT" >> "$GITHUB_OUTPUT"
+          echo "words_per_day=$WORDS_PER_DAY" >> "$GITHUB_OUTPUT"
+          echo "month=$MONTH" >> "$GITHUB_OUTPUT"
+          echo "year=$YEAR" >> "$GITHUB_OUTPUT"
+          echo "month_lower=$MONTH_LOWER" >> "$GITHUB_OUTPUT"
+
+      - name: Create check-in issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const wc = parseInt('${{ steps.stats.outputs.word_count }}');
+            const target = parseInt('${{ steps.stats.outputs.target }}');
+            const daysLeft = parseInt('${{ steps.stats.outputs.days_left }}');
+            const wpd = parseInt('${{ steps.stats.outputs.words_per_day }}');
+            const month = '${{ steps.stats.outputs.month }}';
+            const year = '${{ steps.stats.outputs.year }}';
+            const monthLower = '${{ steps.stats.outputs.month_lower }}';
+
+            const pct = Math.min(100, Math.round(wc * 100 / target));
+            const filled = Math.round(pct / 5);
+            const bar = '#'.repeat(filled) + '.'.repeat(20 - filled);
+
+            let status = '\u{1F4C4} Not yet started';
+            if (pct >= 100) status = '✅ Complete';
+            else if (pct >= 75) status = '\u{1F3C1} Final stretch';
+            else if (pct >= 50) status = '\u{1F525} Past halfway';
+            else if (pct >= 25) status = '⚡ Building momentum';
+            else if (pct > 0) status = '\u{1F331} Getting started';
+
+            const body = [
+              `## Chronikon — ${month} ${year} check-in`,
+              ``,
+              `| | |`,
+              `|---|---|`,
+              `| **Words written** | ${wc.toLocaleString()} / ${target.toLocaleString()} |`,
+              `| **Progress** | \`[${bar}]\` ${pct}% |`,
+              `| **Days to deadline** | ${daysLeft} (Nov 30 2026) |`,
+              `| **Pace needed** | ${wpd} words/day |`,
+              `| **Status** | ${status} |`,
+              ``,
+              `---`,
+              ``,
+              `### Monthly review`,
+              ``,
+              `- [ ] Did you write at least 220 words on most days this month?`,
+              `- [ ] Is the chapter you're working on moving forward?`,
+              `- [ ] Anything to add to the Soundtrack manifest?`,
+              `- [ ] Any new organizing principles to capture in \`principles/\`?`,
+              `- [ ] Push to \`main\` and download the latest PDF from Actions?`,
+              `- [ ] Update \`PROGRESS.md\` with a note on where you are?`,
+              ``,
+              `---`,
+              ``,
+              `*When done: close this issue and tag — \`git tag month-${monthLower}-${year}\`*`,
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Monthly check-in: ${month} ${year}`,
+              body,
+            });
