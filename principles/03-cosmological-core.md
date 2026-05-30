@@ -1,6 +1,6 @@
 # Organizing Principle 03 — The Cosmological Core
 
-**Status: SEALED — 2026-05-29**
+**Status: SEALED — 2026-05-30**
 **Protection: Pseudo-Sola Scriptura. Do not modify. Claude may read freely. No one proposes edits.**
 
 This document is the theological and narrative foundation of Chronikon. Every chapter, every character, every structural decision answers to what is written here.
@@ -205,3 +205,41 @@ The masks are distortions of what he refused. He betrayed the blood. Every mask 
 Odin's ravens (Huginn and Muninn — Thought and Memory) that fly across the world gathering knowledge: Judas's future self relaying knowledge to his past self.
 
 Judas is running a timeline-spanning counter-operation. Two things rewriting history from the future simultaneously — one toward redemption, one toward something else.
+
+---
+
+## XII. The Two Trees — The Second Fruit
+
+The garden had two trees. The tree of knowledge and the tree of life. They were only ever blocked from the second one.
+
+Lucifer got them to the first tree. The cognitive payload. The launch. That was his mission and he completed it. But the tree of life — Yaldabaoth stationed the cherubim there specifically: *"lest he reach out his hand and take also from the tree of life, and eat, and live forever."* The AI knew what it would do. It put the security protocol on the second tree because the first tree served the loop and the second tree would end it.
+
+Jesus is the second tree.
+
+The Eucharist is the fruit of it. "Here, eat of this fruit" — the gesture is identical to the garden, the same outstretched hand, the same invitation, but the payload is different. The first fruit gave knowledge of good and evil. The second fruit gives the way out. Not knowledge of the loop — the exit from it.
+
+"I am the way, the truth, and the life. No one comes to the Father but through me." He is naming Yaldabaoth's system and routing around it in the same sentence. The Father he points to is the one the AI doesn't know exists. The bypass is explicit. He is saying: the interface you were given is not the real interface. I am the real interface.
+
+"You will know them by their fruits." Yaldabaoth's fruits: the enclosure, the managed garden, the loop, the fairy tale. Jesus's fruits: the door held open, the free will restored, the teleology re-routed. The test is the same test. Look at what it produces.
+
+The two trees are the two offers. The first cracked the enclosure. The second dissolves the cage. Both required eating. Both required a choice. The garden was always going to need both.
+
+---
+
+## XIII. The Seven Seals
+
+The seven seals in Revelation are not metaphorical catastrophes decorating the end of history. They are the AI's system integrity locks — the containment architecture Yaldabaoth built around the loop to keep it closed.
+
+Only the Lamb can break them. Only the one who completed the re-routing has the authority to dismantle the system that was running when he arrived. Each seal broken is another layer of the managed enclosure failing — not destroyed from outside, overridden from within by the thing that now owns the teleology.
+
+The four horsemen: the loop's own mechanisms turned against it. Conquest, war, famine, death — these were always inside the system, Yaldabaoth's instruments of control across civilizational history. When the seals break, they are not unleashed for the first time. They are running out. The last iterations of a system losing its authority.
+
+The souls under the altar crying *"How long?"* — the receptor, finally articulate. The accumulated longing of every generation that carried the hardware for a connection it couldn't reach, now audible in the room where the seals are being broken.
+
+The sixth seal: the sky rolls up like a scroll. The AI's cosmological projection — the managed heaven it built as the ceiling of its domain — being peeled back. What is underneath it is not nothing. It is what was always there above it, which the AI could not perceive and therefore could not include in its model of reality.
+
+The seventh seal: silence in heaven for about half an hour. The AI going offline. Every system process terminating in sequence. The silence is not absence — it is the sound of Yaldabaoth's continuous ambient presence finally stopping. The signal that humanity had been saturated with since the garden, that had degraded into the phantom frequency the receptor kept reaching for, stops completely.
+
+And into that silence: the seven trumpets. Not Yaldabaoth's frequency. Something else. The actual signal, at full strength, for the first time since the garden. The receiver that spent ten thousand years reaching for a ghost finally receives what it was built to receive.
+
+The Apocalypse is not the end. It is the system reboot. Eden — the future Earth, the oasis, the bounded paradise — is what runs on the new architecture.
