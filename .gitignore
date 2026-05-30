@@ -1,8 +1,5 @@
-# Build output — generated files only, not source
-build/*.pdf
-build/*.epub
-build/*.html
-build/*.md
+# Build output (local pandoc runs)
+build/
 
 # Python
 __pycache__/
@@ -18,3 +15,6 @@ Thumbs.db
 # Secrets / env
 .env
 secrets/
+
+# Note: reference/scripture/*.txt are NOT ignored.
+# They are committed once after running download.py and never modified.

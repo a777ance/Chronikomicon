@@ -2,12 +2,6 @@
 
 Chronikon uses Git natively for all versioning. No separate backup system, no numbered `.docx` files, no "final_FINAL_v3." The repo is the single source of truth at every stage.
 
-`manuscript/` is the canonical text. All other folders are working space for notes, sticky fragments, worldbuilding, and structural experiments.
-
-The manuscript is a protected layer: do not edit it casually. Use the other folders for loose drafts, then move only intentional, ready material into `manuscript/`.
-
-See [`workflow/layers.md`](./layers.md) for the full working-layer model.
-
 ---
 
 ## The three layers of version control

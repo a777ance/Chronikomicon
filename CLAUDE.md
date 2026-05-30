@@ -15,6 +15,20 @@ These are different things. Never confuse them.
 
 ---
 
+## Session start protocol (every session)
+
+At the start of every session, Claude must:
+
+1. **Show progress** — state the current word count, % toward 40,000, days to Nov 30 2026, and words/day needed. The session-start hook provides this automatically in remote sessions; read the chapter files directly if needed.
+2. **Ask one question** — "What do you want to work on today?" If the manuscript state makes the next task obvious (e.g. a chapter is clearly mid-scene), suggest it instead.
+3. **Stop.** Wait for direction before doing anything else.
+
+Keep the briefing to 3 lines. Do not pad it with options or suggestions beyond the one question. The user has ADHD — one clear prompt is enough. Overwhelming with choices is a failure mode.
+
+**Minimum daily target: 220 words.** If the user says they only have a few minutes, the answer is always: write 220 words, then stop.
+
+---
+
 ## What this repo is
 
 Chronikomicon is a structured creative workspace. VS Code is the writing environment. Claude Code is the writing assistant and ghostwriter. The repo is the single source of truth — for all drafts, all versions, all theory, all reference material.
@@ -50,7 +64,7 @@ chronikomicon/
 ## Organizing principles (current)
 
 | File | Name | Status | Core idea |
-|------|------|--------|----------|
+|------|------|--------|-----------|
 | `principles/01-twelve-hour-clock.md` | The Twelve-Hour Clock | rough draft | 12 chapters = 12 clock positions. Circular, not linear. |
 
 ### Key concept: Dispensations
@@ -97,6 +111,19 @@ Push to `main` touching `manuscript/` → GitHub Actions builds PDF + epub + HTM
 Workflow: `.github/workflows/build.yml`. Download artifacts from the Actions tab.
 
 Local build: `Ctrl+Shift+B` in VS Code (requires pandoc installed).
+
+---
+
+## Automation
+
+| System | What it does | When it runs |
+|--------|-------------|-------------|
+| `session-start.sh` | Word count briefing + progress bar + nudge | Every Claude Code session start |
+| `build.yml` | Renders manuscript → PDF + epub + HTML | On push to `manuscript/` |
+| `wordcount.yml` | Word count progress bar in Actions summary | On push to `manuscript/chapters/` |
+| `monthly-checkin.yml` | Opens a GitHub Issue with monthly progress | 1st of every month, 9am UTC |
+
+To trigger the monthly check-in manually: Actions → Monthly Check-in → Run workflow.
 
 ---
 

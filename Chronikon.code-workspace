@@ -1,4 +1,6 @@
 {
+  // Open this file in VS Code to get the writer's view of the repo.
+  // File > Open Workspace from File... > Chronikon.code-workspace
   "folders": [
     {
       "name": "Manuscript",
@@ -11,10 +13,6 @@
     {
       "name": "Reference",
       "path": "reference"
-    },
-    {
-      "name": "Workflow",
-      "path": "workflow"
     },
     {
       "name": "Progress",
@@ -55,23 +53,7 @@
       "Chronikomicon",
       "Dispensation",
       "Dispensations"
-    ],
-    "files.exclude": {
-      "**/.gitkeep": true,
-      ".github": true,
-      ".gitignore": true,
-      ".gitattributes": true,
-      ".vscode": true,
-      "build": true,
-      "manuscript": true,
-      "principles": true,
-      "reference": true,
-      "workflow": true,
-      "Chronikon.code-workspace": true,
-      "CLAUDE.md": true,
-      "LICENSE": true,
-      "README.md": true
-    }
+    ]
   },
   "extensions": {
     "recommendations": [
