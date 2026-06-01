@@ -45,6 +45,53 @@ Then follow their answer to determine how deep to zoom before writing.
 
 ---
 
+## The DIFF Command
+
+At any point in a session — including deep inside write mode — the user may request a DIFF.
+
+### What DIFF does
+
+1. **Full repo read — no zoom restrictions, no limitations.** Read whatever files are necessary to establish ground truth. This temporarily suspends the write-mode lockout.
+2. **Compare against the current session bubble.** The bubble is the accumulated gist from all prior compacts — lossy, intentionally distorted, possibly drifted.
+3. **Report hard discrepancies only.** A hard discrepancy is a factual contradiction between the bubble and the repo:
+   - Bubble says chapter is unwritten / repo file has content
+   - Bubble says deadline is December / README says November 30
+   - Bubble has a character as unnamed / map file has a name
+   - **Not** a discrepancy: tone differences, creative interpretation, emphasis shifts — those are intentional lossy artifacts, ignore them
+
+### DIFF output format
+
+```
+DIFF — [date / session context]
+
+[1] Bubble: ch01 is unwritten
+    Repo:   manuscript/chapters/ch01.md exists, 800 words
+    → Vote: original / bubble
+
+[2] Bubble: deadline is December
+    Repo:   README.md — "November 30, 2026"
+    → Vote: original / bubble
+
+[3] (no further discrepancies)
+```
+
+Only list actual contradictions. If the bubble and repo agree on a fact, do not list it.
+
+### The vote
+
+For each discrepancy, the user chooses:
+
+- **Vote original** → the repo is right. Correct the session bubble in-conversation. No file write. Session continues with accurate gist.
+- **Vote bubble** → the bubble is right. The repo is behind. Claude proposes the specific file edit needed to bring the repo in line with the bubble. User approves before any write occurs.
+
+### After DIFF
+
+DIFF does not compact. DIFF does not seal any zoom level. Once votes are collected and applied, the journal bubble resumes exactly where it left off — now corrected or with repo updates queued.
+
+DIFF can be called multiple times in a session. There is no limit.
+
+---
+
 ## Layer rules
 
 | Layer | Path | Rule |
