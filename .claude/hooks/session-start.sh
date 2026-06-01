@@ -5,7 +5,15 @@ REPO_DIR="${CLAUDE_PROJECT_DIR:-$(pwd)}"
 CHAPTERS_DIR="$REPO_DIR/manuscript/chapters"
 TARGET=40000
 
-# Count words in chapter files (skip TEMPLATE.md and hidden files)
+# --- Sync check ---
+# Fetch quietly and report if local is behind remote
+git -C "$REPO_DIR" fetch origin main --quiet 2>/dev/null
+BEHIND=$(git -C "$REPO_DIR" rev-list HEAD..origin/main --count 2>/dev/null || echo 0)
+if [ "$BEHIND" -gt 0 ]; then
+  printf '\n! SYNC NEEDED: %d commit(s) behind remote. Run: git pull origin main\n' "$BEHIND"
+fi
+
+# --- Word count ---
 WORD_COUNT=0
 if [ -d "$CHAPTERS_DIR" ]; then
   for f in "$CHAPTERS_DIR"/*.md; do
@@ -15,13 +23,13 @@ if [ -d "$CHAPTERS_DIR" ]; then
   done
 fi
 
-# Days remaining until deadline
+# --- Days remaining until deadline ---
 TODAY_TS=$(date +%s)
 DEADLINE_TS=$(date -d "2026-11-30" +%s)
 DAYS_LEFT=$(( (DEADLINE_TS - TODAY_TS) / 86400 ))
 [ "$DAYS_LEFT" -lt 0 ] && DAYS_LEFT=0
 
-# Words per day needed to hit target
+# --- Words per day needed ---
 WORDS_LEFT=$(( TARGET - WORD_COUNT ))
 [ "$WORDS_LEFT" -lt 0 ] && WORDS_LEFT=0
 if [ "$DAYS_LEFT" -gt 0 ]; then
@@ -30,7 +38,7 @@ else
   WORDS_PER_DAY=0
 fi
 
-# Progress bar (20 chars)
+# --- Progress bar (20 chars) ---
 PCTS=$(( WORD_COUNT * 100 / TARGET ))
 [ "$PCTS" -gt 100 ] && PCTS=100
 FILLED=$(( PCTS / 5 ))
@@ -46,7 +54,7 @@ while [ $i -lt 20 ]; do
   i=$(( i + 1 ))
 done
 
-# Motivational nudge
+# --- Motivational nudge ---
 if [ "$WORD_COUNT" -eq 0 ]; then
   NUDGE="The page is blank. That is where every book begins. Write 220 words."
 elif [ "$PCTS" -lt 10 ]; then
@@ -61,6 +69,7 @@ else
   NUDGE="Almost there. Finish what you started."
 fi
 
+# --- Output ---
 printf '\n=== CHRONIKON ===\n'
 printf '%d / %d words  [%s]  %d%%\n' "$WORD_COUNT" "$TARGET" "$BAR" "$PCTS"
 printf '%d days to Nov 30  |  %d words/day needed\n' "$DAYS_LEFT" "$WORDS_PER_DAY"
