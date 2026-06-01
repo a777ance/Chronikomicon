@@ -1,0 +1,34 @@
+extends: existence
+message: "Second-gen slop '%s' — structural tell, not surface word."
+level: error
+tokens:
+  - rather than
+  - the size of
+  - the weight of
+  - the means of
+  - the fact of
+  - never arrived
+  - never needed
+  - never quite
+  - the one band
+  - the one place
+  - the one thing
+  - the one moment
+  - the one time
+  - was a lattice
+  - was a web
+  - was a network
+  - was a field
+  - threw at it
+  - threw at them
+  - threw at her
+  - threw at him
+  - and held it
+  - and kept it
+  - and held them
+  - converting hostility
+  - converting fear
+  - converting grief
+  - in lieu of
+  - instead of knowing
+  - instead of feeling

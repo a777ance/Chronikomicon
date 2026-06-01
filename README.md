@@ -81,7 +81,7 @@ git push
 |----------|--------------|
 | `Ctrl+K Z` | Zen Mode — full screen focus |
 | `Esc Esc` | Exit Zen Mode |
-| `Ctrl+Shift+E` | Explorer |
+| `Ctrl+Shift+E` | Explorer (Manuscript, Theory, Mindmap, Reference, Workflow, Progress) |
 | `Ctrl+Shift+V` | Markdown preview |
 | `Ctrl+Shift+B` | Build manuscript (PDF) |
 | `Alt+Q` | Rewrap paragraph |

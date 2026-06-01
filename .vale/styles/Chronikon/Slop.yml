@@ -1,0 +1,20 @@
+extends: existence
+message: "'%s' is an AI writing pattern — find the specific thing."
+level: error
+tokens:
+  - something
+  - anything
+  - everything about
+  - the way things
+  - all of this
+  - all that
+  - amounted to
+  - what you might call
+  - not unlike
+  - not quite
+  - not exactly
+  - of a kind
+  - a kind of
+  - a sort of
+  - a sense of
+  - in the neighborhood of

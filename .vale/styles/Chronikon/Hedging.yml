@@ -1,0 +1,16 @@
+extends: existence
+message: "Hedging word '%s' drains the prose of conviction."
+level: warning
+tokens:
+  - somehow
+  - something that
+  - sort of
+  - kind of
+  - rather
+  - somewhat
+  - quite
+  - in a way
+  - in some sense
+  - almost as if
+  - what felt like
+  - what might have been

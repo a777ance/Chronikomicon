@@ -1,0 +1,24 @@
+extends: existence
+message: "Negation '%s' — describe what IS, not what isn't. Poetic negation counts too."
+level: error
+tokens:
+  - no ground
+  - no anchor
+  - no face
+  - no right to
+  - nowhere to
+  - nothing underneath
+  - nothing adequate
+  - not from
+  - not yet
+  - not quite
+  - not exactly
+  - not directly
+  - never arrived
+  - never needed to
+  - never quite reached
+  - rather than a
+  - instead of a
+  - more than a
+  - less than a
+  - other than a

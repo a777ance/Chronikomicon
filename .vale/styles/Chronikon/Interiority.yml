@@ -1,0 +1,34 @@
+extends: existence
+message: "Stated interiority '%s' — enact it instead."
+level: error
+tokens:
+  - he thought about
+  - she thought about
+  - they thought about
+  - he realized
+  - she realized
+  - it occurred to him
+  - it occurred to her
+  - he couldn't help but
+  - she couldn't help but
+  - part of him
+  - part of her
+  - something in him
+  - something in her
+  - he told himself
+  - she told herself
+  - he didn't know why
+  - she didn't know why
+  - he wasn't sure why
+  - she wasn't sure why
+  - he found himself
+  - she found herself
+  - he noticed that
+  - she noticed that
+  - he understood
+  - she understood
+  - he knew, somehow
+  - she knew, somehow
+  - he felt something
+  - she felt something
+  - had a way of

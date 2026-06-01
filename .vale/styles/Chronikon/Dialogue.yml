@@ -1,0 +1,23 @@
+extends: existence
+message: "Dialogue tell '%s' — find a stronger attribution or none at all."
+level: warning
+tokens:
+  - said softly
+  - said quietly
+  - said slowly
+  - said carefully
+  - said gently
+  - said simply
+  - said finally
+  - said nothing
+  - said at last
+  - didn't answer
+  - didn't respond
+  - you mean
+  - what you're saying is
+  - he understood
+  - she understood
+  - they understood
+  - he nodded
+  - she nodded
+  - without a word

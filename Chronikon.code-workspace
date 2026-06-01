@@ -9,6 +9,10 @@
       "path": "principles"
     },
     {
+      "name": "Mindmap",
+      "path": "mindmap"
+    },
+    {
       "name": "Reference",
       "path": "reference"
     },

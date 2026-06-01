@@ -1,0 +1,41 @@
+extends: existence
+message: "Weak word '%s' — cut it or replace it with something specific."
+level: error
+tokens:
+  - simply
+  - just
+  - merely
+  - truly
+  - deeply
+  - quietly
+  - slowly
+  - suddenly
+  - already
+  - finally
+  - still
+  - always
+  - never
+  - somehow
+  - seemingly
+  - seemed
+  - appeared to
+  - might have been
+  - would have
+  - could have
+  - perhaps
+  - maybe
+  - possibly
+  - probably
+  - certainly
+  - obviously
+  - clearly
+  - quite
+  - rather
+  - somewhat
+  - slightly
+  - almost
+  - nearly
+  - barely
+  - merely
+  - only
+  - even

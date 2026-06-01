@@ -1,0 +1,37 @@
+extends: existence
+message: "Structural cliché '%s' — find a different exit."
+level: warning
+tokens:
+  - as if
+  - there was something
+  - there were things
+  - but that was before
+  - that was when
+  - and somehow
+  - and yet
+  - even so
+  - all of it
+  - all of this
+  - none of it
+  - none of this
+  - everything else
+  - nothing else
+  - what it meant
+  - what it was
+  - the kind of
+  - the sort of
+  - the way things
+  - the way it
+  - a sense of
+  - a feeling of
+  - a kind of
+  - a sort of
+  - in a way
+  - in some sense
+  - in the end
+  - after all
+  - of course
+  - naturally
+  - it was the
+  - this was the
+  - that was the
