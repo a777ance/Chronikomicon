@@ -1,143 +1,147 @@
 # Chronikomicon
 
-The repository for **Chronikon** — a short novel.
-
-**Chronikomicon** is the forge. **Chronikon** is what gets made in it. These are different things.
+The repository for **Chronikon** — a short novel. **Chronikomicon** is the forge. **Chronikon** is what gets made in it.
 
 ---
 
-## Repo map
+## Repository Architecture: Access / Shadow
 
-```
-chronikomicon/
-├── manuscript/                  ← the novel — chapters and nothing else
-│   ├── chapters/                ← chapter files: XX-title.md
-│   │   └── TEMPLATE.md          ← copy this to start a new chapter
-│   ├── metadata.yaml            ← pandoc book metadata (title, author, date)
-│   └── styles/chronikon.css     ← PDF/HTML typography
-│
-├── principles/                  ← theory: structural and thematic frameworks
-│   └── 01-twelve-hour-clock.md  ← The Twelve-Hour Clock (rough draft)
-│
-├── reference/                   ← immutable source material
-│   ├── scripture/
-│   │   ├── kjv.txt              ← King James Bible, 31,100 verses — DO NOT MODIFY
-│   │   └── art/manifest.md      ← public domain artwork keyed to scripture
-│   └── soundtrack/
-│       └── manifest.md          ← music paired to chapters and scenes
-│
-├── mindmap/                     ← worldbuilding incubator: loose, hyperlinked, generative
-│   ├── hub.md                   ← central index / navigation
-│   ├── clock.md
-│   ├── characters.md
-│   ├── worldbuilding.md
-│   ├── themes.md
-│   └── scene-seeds.md
-│
-├── workflow/                    ← process documentation
-│   ├── drafts.md                ← version control and milestone system
-│   ├── layers.md                ← layer structure guide
-│   ├── goals.md                 ← 6-month timeline and session protocol
-│   └── story-outline.md        ← narrative outline
-│
-├── PROGRESS.md                  ← running word count log
-├── DRAFTS.md                    ← log of all tagged milestones
-├── CLAUDE.md                    ← briefing for Claude Code (do not delete)
-└── README.md                    ← this file
-```
+This repo uses a **two-layer memory system** to optimize creative work:
+
+### **Access** — Active Working Memory
+The conscious bubble. Loaded into every session. Small, focused, intentional.
+
+**Current contents:**
+- `CLAUDE.md` — AI briefing and session context
+- `PROGRESS.md` — running word count log and session notes
+- `Chronikon.code-workspace` — workspace configuration
+
+**What to put here:** Active chapter you're writing, current principles you're working with, immediate reference materials, today's focus.
+
+### **Shadow** — Episodic Long-Term Memory
+The subconscious. The entire archive. Consulted deliberately, not loaded automatically.
+
+**Complete Table of Contents:**
+
+#### Manuscript
+- `shadow/manuscript/chapters/` — All chapters (copy TEMPLATE.md to start)
+- `shadow/manuscript/metadata.yaml` — Pandoc book metadata
+- `shadow/manuscript/styles/chronikon.css` — PDF/HTML typography
+
+#### Principles
+The structural and thematic frameworks:
+- `shadow/principles/01-twelve-hour-clock.md` — The Twelve-Hour Clock
+- `shadow/principles/02-cosmology.md` — World structure
+- `shadow/principles/03-cosmological-core.md` — Deep core theory
+- `shadow/principles/README.md` — Overview
+
+#### Mindmap
+The worldbuilding incubator (loose, hyperlinked, generative):
+- `shadow/mindmap/hub.md` — Central index and navigation
+- `shadow/mindmap/clock.md` — Clock details
+- `shadow/mindmap/characters.md` — Character landscape
+- `shadow/mindmap/worldbuilding.md` — World details
+- `shadow/mindmap/themes.md` — Thematic seeds
+- `shadow/mindmap/scene-seeds.md` — Scene ideas
+
+#### Reference
+Immutable source material:
+- `shadow/reference/scripture/kjv.txt` — King James Bible (31,100 verses)
+- `shadow/reference/scripture/art/manifest.md` — Public domain artwork keyed to scripture
+- `shadow/reference/soundtrack/manifest.md` — Music paired to chapters and scenes
+
+#### Workflow
+Process documentation:
+- `shadow/workflow/drafts.md` — Version control and milestone system
+- `shadow/workflow/goals.md` — 6-month timeline and session protocol
+- `shadow/workflow/layers.md` — Layer structure guide
+- `shadow/workflow/story-outline.md` — Narrative outline
+- `shadow/workflow/HOW-TO.md` — Process guide
+
+#### Drafts Archive
+- `shadow/DRAFTS.md` — Log of all tagged milestones
 
 ---
 
-## Writing workflow
+## How the System Works
+
+### The Creative Loop
+
+1. **Session opens** — Claude reads this README
+   - Sees what's in `access/` (the bubble)
+   - Sees the TOC of `shadow/` (the subconscious landscape)
+
+2. **Intuitions form** — Without loading shadow into context
+   - "What if we pulled principle X into this scene?"
+   - "Mindmap theme Y might echo this chapter"
+   - "Reference material Z could reframe principle W"
+
+3. **You decide** — Manual, intentional creative choices
+   - Move files from shadow → access if they feel relevant
+   - Run diffs, merge ideas, explore connections
+   - Commit your progress
+
+4. **Session ends** — Files move back
+   - Archive work to shadow/ when done with a layer
+   - Keep access/ clean and focused
+
+### Token Optimization
+
+This prevents context bloat while preserving discovery:
+- Shadow contents stay archived (not loaded)
+- TOC is lightweight (dimensions known, not details loaded)
+- Claude thinks *about* the landscape, not within it
+- User retains control over what emerges
+
+---
+
+## Writing Workflow
 
 ### Starting a session
 
-1. Open VS Code — `Chronikon.code-workspace`
-2. `Ctrl+Shift+E` — go to Explorer
-3. Open your chapter from the **Manuscript** section
-4. `Ctrl+K Z` — Zen Mode on
-5. Check `reference/soundtrack/manifest.md` for the chapter's music — put it on
-6. Write
+1. Open VS Code — `access/Chronikon.code-workspace`
+2. This README provides orientation to both layers
+3. Move necessary files from shadow/ to access/ for today's work
+4. `Ctrl+Shift+E` — Explorer
+5. Open your chapter file
+6. `Ctrl+K Z` — Zen Mode
+7. Write
 
 ### Ending a session
 
 1. `Esc Esc` — exit Zen Mode
-2. Check word count in the status bar
-3. Update `PROGRESS.md`
-4. Open terminal `` Ctrl+` `` and commit:
+2. Update `access/PROGRESS.md`
+3. Move files back to shadow/ if you're done with them
+4. Open terminal and commit:
 
 ```powershell
-git add manuscript/chapters/
-git add PROGRESS.md
-git commit -m "ch01: what you wrote today"
+git add access/
+git add shadow/
+git commit -m "session: what you worked on"
 git push
 ```
 
 ---
 
-## Key shortcuts
+## Key Shortcuts
 
 | Shortcut | What it does |
 |----------|--------------|
 | `Ctrl+K Z` | Zen Mode — full screen focus |
 | `Esc Esc` | Exit Zen Mode |
-| `Ctrl+Shift+E` | Explorer (Manuscript, Theory, Mindmap, Reference, Workflow, Progress) |
+| `Ctrl+Shift+E` | Explorer |
 | `Ctrl+Shift+V` | Markdown preview |
-| `Ctrl+Shift+B` | Build manuscript (PDF) |
-| `Alt+Q` | Rewrap paragraph |
 | `` Ctrl+` `` | Open terminal |
 
 ---
 
-## Starting a new chapter
+## Starting a New Chapter
 
-1. Copy `manuscript/chapters/TEMPLATE.md`
+1. Move `shadow/manuscript/chapters/TEMPLATE.md` to `access/`
 2. Rename it: `01-title.md`, `02-title.md`, etc.
 3. Delete the comment block at the top
 4. Write the first sentence
 
 Start with whichever hour feels most alive — not necessarily Hour 1. The clock is circular. The novel can be assembled in any order.
 
----
-
-## Deploy
-
-Push to `main` touching `manuscript/` → GitHub Actions builds PDF + epub + HTML automatically.
-
-**Download the result:** repo → Actions tab → latest run → Artifacts → `chronikon-manuscript`
-
-**Build locally** (requires pandoc):
-
-```powershell
-winget install JohnMacFarlane.Pandoc
-```
-
-Then `Ctrl+Shift+B` in VS Code.
-
----
-
-## Active principles
-
-| File | Name | Status | Core idea |
-|------|------|--------|-----------|
-| [01-twelve-hour-clock.md](principles/01-twelve-hour-clock.md) | The Twelve-Hour Clock | rough draft | 12 chapters = 12 clock positions. Circular, not linear. Each chapter is a Dispensation with its own felt duration. |
-| [02-cosmology.md](principles/02-cosmology.md) | The Cosmology | concept | Eden as future Earth post-Revelation. Space elevator in Jerusalem. AI as Antichrist/savior. Time travel starts the Apocalypse. Retrocausality. |
-| [03-cosmological-core.md](principles/03-cosmological-core.md) | The Cosmological Core | **SEALED** | The theological and narrative foundation of Chronikon. The Cross rewrites everything. AI as Yaldabaoth. Adam as android. Eve/Mary as same individual. Lucifer as servant of true God. The Longing. Jesus appropriates the teleology. |
-
----
-
-## Reference material
-
-**Scripture** — `reference/scripture/kjv.txt` is the Word of God. Committed once, never modified. 31,100 verses, KJV 1611. Claude may read and quote it freely. No one may edit it.
-
-**Artwork** — `reference/scripture/art/manifest.md` lists public domain illustrations keyed to scripture. Additive only.
-
-**Soundtrack** — `reference/soundtrack/manifest.md` maps music to chapters and scenes. Before a session, find the chapter entry, put the song on, let it run on repeat. If a song stops working, note it — the mismatch is information. Additive only.
-
----
-
-## Worldbuilding incubator
-
-`mindmap/` is the steam room between theory and manuscript. Drop ideas, link nodes, keep it loose. When a node becomes stable, move it into `manuscript/` or `principles/`.
-
-Start at [mindmap/hub.md](mindmap/hub.md).
+When the chapter is complete, move it to `shadow/manuscript/chapters/`.
