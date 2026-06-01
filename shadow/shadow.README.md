@@ -9,17 +9,18 @@ This is the archive. The entire landscape of the novel in all its layers.
 
 **Structure:**
 
-Each first-order folder has its own architecture:
+Each first-order folder has its own navigational space:
 - `manuscript/` — The novel
 - `principles/` — Structural and thematic theory
 - `mindmap/` — Worldbuilding incubator
 - `reference/` — Immutable source material
 - `workflow/` — Process documentation
 
-Each folder contains:
-- `README.md` — Overview specific to that domain
-- `access/` — Active working space within that domain
-- `shadow/` — Archive within that domain
+**File/Folder Naming:**
+- Folders in shadow are the archive by default
+- Use `[name]` brackets to explicitly mark things as shadowed/archived/ignore
+- Example: `[old-version]/` for something you want out of the way
+- READMEs are never bracketed (always readable)
 
 **How to navigate:**
-Consult the root README for a high-level map. When you need details about a specific domain, read that domain's README. It will explain its own fractal structure.
+Consult the root README for high-level map. When you need details about a specific domain, read that domain's breadcrumb README (e.g., `manuscript.README.md`). It will explain its own structure.

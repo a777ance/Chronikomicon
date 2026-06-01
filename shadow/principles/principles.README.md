@@ -17,11 +17,17 @@ Principles are **not** the novel. They are instruments for thinking. Any princip
 
 No principle is binding. The manuscript is the only authority.
 
-**Structure:**
-- `access/` — Principles you're actively using this session
-- `shadow/` — The complete theory archive
+**File/Folder Naming:**
+- Active principles: `clock-variations.md`, `cosmology.md`
+- Archived/exploring: `[experimental-clock].md`, `[abandoned-theory].md`
+- Bracket = not currently in use, but keeping for reference
 
-**Active Principles:**
-- `01-twelve-hour-clock.md` — The Twelve-Hour Clock (rough draft)
-- `02-cosmology.md` — World structure
+**Managing principles:**
+- Work with unbracket versions
+- Archive old versions with brackets: `clock.md` → `[clock-v1].md`
+- Subfolders work the same way
+
+**Active Files:**
+- `01-twelve-hour-clock.md` — The foundational clock
+- `02-cosmology.md` — World structure  
 - `03-cosmological-core.md` — Deep core theory

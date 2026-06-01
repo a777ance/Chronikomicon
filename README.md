@@ -4,14 +4,26 @@ The repository for **Chronikon** — a short novel. **Chronikomicon** is the for
 
 ---
 
-## Repository Architecture: Fractal Access / Shadow
+## Repository Architecture: Fractal Access / Shadow with Bracket Toggles
 
-This repo uses a **recursive two-layer memory system**. Every folder contains:
-- `README.md` — Overview and navigation specific to that layer
-- `access/` — Active working space for that context
-- `shadow/` — Archive for that context
+This repo uses a **recursive two-layer memory system** with **bracket notation for state management**.
 
-**Turtles all the way down.**
+### **Core Principle**
+
+- **No brackets** = active / working / live
+- **Brackets `[name]`** = shadowed / archived / ignore
+- Brackets work on **both files and folders**
+- READMEs are **never bracketed** (always visible)
+
+### **Naming Convention**
+
+All files and folders use **breadcrumb paths in their names**:
+- `access.README.md` in the access/ folder
+- `manuscript.md` for a file about manuscript
+- `[Judas].md` for an archived version of a Judas file
+- `[Judas]/` for an archived Judas folder
+
+This makes context immediately clear at a glance.
 
 ### **Root Level**
 
@@ -29,25 +41,45 @@ This repo uses a **recursive two-layer memory system**. Every folder contains:
 
 ### **First-Order Folders**
 
-Each folder has its own access/shadow structure. For details, read each folder's README:
+Each folder has its own access/shadow structure. For details, read each folder's breadcrumb README:
 
-- [shadow/manuscript/README.md](shadow/manuscript/README.md) — Chapters, metadata, styles
-- [shadow/principles/README.md](shadow/principles/README.md) — Theory and frameworks
-- [shadow/mindmap/README.md](shadow/mindmap/README.md) — Worldbuilding incubator
-- [shadow/reference/README.md](shadow/reference/README.md) — Immutable sources
-- [shadow/workflow/README.md](shadow/workflow/README.md) — Process documentation
+- [shadow/manuscript/manuscript.README.md](shadow/manuscript/manuscript.README.md) — Chapters, metadata, styles
+- [shadow/principles/principles.README.md](shadow/principles/principles.README.md) — Theory and frameworks
+- [shadow/mindmap/mindmap.README.md](shadow/mindmap/mindmap.README.md) — Worldbuilding incubator
+- [shadow/reference/reference.README.md](shadow/reference/reference.README.md) — Immutable sources
+- [shadow/workflow/workflow.README.md](shadow/workflow/workflow.README.md) — Process documentation
 
 **Master README stays high-level.** It does not list subfolders. Each folder owns its own documentation.
 
 ### **Schema Rule**
 
-**When any new folder is created, it must follow this structure:**
-1. Create `access/` subfolder
-2. Create `shadow/` subfolder
-3. Create `README.md` explaining the layer
+**When any new folder is created, it MUST follow this structure:**
+1. Create `folder-name/` (no brackets unless you want it archived)
+2. Create `foldername.README.md` inside it (never bracketed)
+3. Manage contents with bracket toggles on files/folders as needed
 4. Do not deviate. This is non-negotiable.
 
-This keeps the archive navigable and context-aware at every level.
+### **Bracket Usage Examples**
+
+**Archive a file:**
+```
+Notes/
+├── notes.README.md       (always visible)
+├── session-log.md        (active)
+└── [session-log].md      (archived/old version)
+```
+
+**Archive a folder:**
+```
+Characters/
+├── characters.README.md
+├── Judas/                (active character folder)
+└── [Judas]/              (archived character folder)
+```
+
+**Move between active/archived:** Rename by adding/removing brackets.
+
+This keeps the working memory clean and the archive visible but distinct.
 
 
 ---
