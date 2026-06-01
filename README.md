@@ -4,94 +4,73 @@ The repository for **Chronikon** — a short novel. **Chronikomicon** is the for
 
 ---
 
-## Repository Architecture: Access / Shadow
+## Repository Architecture: Fractal Access / Shadow
 
-This repo uses a **two-layer memory system** to optimize creative work:
+This repo uses a **recursive two-layer memory system**. Every folder contains:
+- `README.md` — Overview and navigation specific to that layer
+- `access/` — Active working space for that context
+- `shadow/` — Archive for that context
 
-### **Access** — Active Working Memory
-The conscious bubble. Loaded into every session. Small, focused, intentional.
+**Turtles all the way down.**
 
-**Current contents:**
-- `CLAUDE.md` — AI briefing and session context
-- `PROGRESS.md` — running word count log and session notes
-- `Chronikon.code-workspace` — workspace configuration
+### **Root Level**
 
-**What to put here:** Active chapter you're writing, current principles you're working with, immediate reference materials, today's focus.
+**Access** — Active Session Context
+- `CLAUDE.md` — AI briefing
+- `PROGRESS.md` — session log
+- `Chronikon.code-workspace` — workspace config
 
-### **Shadow** — Episodic Long-Term Memory
-The subconscious. The entire archive. Consulted deliberately, not loaded automatically.
+**Shadow** — Five First-Order Folders (only these)
+- `manuscript/` — The novel
+- `principles/` — Structural theory
+- `mindmap/` — Worldbuilding
+- `reference/` — Immutable sources
+- `workflow/` — Process docs
 
-**Complete Table of Contents:**
+### **First-Order Folders**
 
-#### Manuscript
-- `shadow/manuscript/chapters/` — All chapters (copy TEMPLATE.md to start)
-- `shadow/manuscript/metadata.yaml` — Pandoc book metadata
-- `shadow/manuscript/styles/chronikon.css` — PDF/HTML typography
+Each folder has its own access/shadow structure. For details, read each folder's README:
 
-#### Principles
-The structural and thematic frameworks:
-- `shadow/principles/01-twelve-hour-clock.md` — The Twelve-Hour Clock
-- `shadow/principles/02-cosmology.md` — World structure
-- `shadow/principles/03-cosmological-core.md` — Deep core theory
-- `shadow/principles/README.md` — Overview
+- [shadow/manuscript/README.md](shadow/manuscript/README.md) — Chapters, metadata, styles
+- [shadow/principles/README.md](shadow/principles/README.md) — Theory and frameworks
+- [shadow/mindmap/README.md](shadow/mindmap/README.md) — Worldbuilding incubator
+- [shadow/reference/README.md](shadow/reference/README.md) — Immutable sources
+- [shadow/workflow/README.md](shadow/workflow/README.md) — Process documentation
 
-#### Mindmap
-The worldbuilding incubator (loose, hyperlinked, generative):
-- `shadow/mindmap/hub.md` — Central index and navigation
-- `shadow/mindmap/clock.md` — Clock details
-- `shadow/mindmap/characters.md` — Character landscape
-- `shadow/mindmap/worldbuilding.md` — World details
-- `shadow/mindmap/themes.md` — Thematic seeds
-- `shadow/mindmap/scene-seeds.md` — Scene ideas
+**Master README stays high-level.** It does not list subfolders. Each folder owns its own documentation.
 
-#### Reference
-Immutable source material:
-- `shadow/reference/scripture/kjv.txt` — King James Bible (31,100 verses)
-- `shadow/reference/scripture/art/manifest.md` — Public domain artwork keyed to scripture
-- `shadow/reference/soundtrack/manifest.md` — Music paired to chapters and scenes
+### **Schema Rule**
 
-#### Workflow
-Process documentation:
-- `shadow/workflow/drafts.md` — Version control and milestone system
-- `shadow/workflow/goals.md` — 6-month timeline and session protocol
-- `shadow/workflow/layers.md` — Layer structure guide
-- `shadow/workflow/story-outline.md` — Narrative outline
-- `shadow/workflow/HOW-TO.md` — Process guide
+**When any new folder is created, it must follow this structure:**
+1. Create `access/` subfolder
+2. Create `shadow/` subfolder
+3. Create `README.md` explaining the layer
+4. Do not deviate. This is non-negotiable.
 
-#### Drafts Archive
-- `shadow/DRAFTS.md` — Log of all tagged milestones
+This keeps the archive navigable and context-aware at every level.
+
 
 ---
 
-## How the System Works
+## The Creative Loop
 
-### The Creative Loop
+1. **Session opens** — Read this README for orientation
+   - Understand what's in root `access/`
+   - Know the five first-order folders in `shadow/`
 
-1. **Session opens** — Claude reads this README
-   - Sees what's in `access/` (the bubble)
-   - Sees the TOC of `shadow/` (the subconscious landscape)
+2. **Go deeper as needed** — Read the README of any folder you're entering
+   - That folder's README explains its own contents
+   - It guides you to its `access/` and `shadow/`
 
-2. **Intuitions form** — Without loading shadow into context
-   - "What if we pulled principle X into this scene?"
-   - "Mindmap theme Y might echo this chapter"
-   - "Reference material Z could reframe principle W"
+3. **Move files intentionally**
+   - Pull active work into a folder's `access/`
+   - Archive finished work to that folder's `shadow/`
+   - Everything is under your control
 
-3. **You decide** — Manual, intentional creative choices
-   - Move files from shadow → access if they feel relevant
-   - Run diffs, merge ideas, explore connections
-   - Commit your progress
-
-4. **Session ends** — Files move back
-   - Archive work to shadow/ when done with a layer
-   - Keep access/ clean and focused
-
-### Token Optimization
-
-This prevents context bloat while preserving discovery:
-- Shadow contents stay archived (not loaded)
-- TOC is lightweight (dimensions known, not details loaded)
-- Claude thinks *about* the landscape, not within it
-- User retains control over what emerges
+4. **Session ends** — Files stay organized
+   - Working files in `access/`, done files in `shadow/`
+   - Clean fractal at every level
+   - Ready for next session
 
 ---
 
@@ -100,23 +79,32 @@ This prevents context bloat while preserving discovery:
 ### Starting a session
 
 1. Open VS Code — `access/Chronikon.code-workspace`
-2. This README provides orientation to both layers
-3. Move necessary files from shadow/ to access/ for today's work
-4. `Ctrl+Shift+E` — Explorer
-5. Open your chapter file
-6. `Ctrl+K Z` — Zen Mode
-7. Write
+2. Read this README for high-level orientation
+3. Navigate to the folder you're working in
+4. Read **that folder's README** to understand its structure
+5. Move necessary files to that folder's `access/`
+6. Open your chapter and write
+
+### Moving files between layers
+
+**To access (pull in to work):**
+```powershell
+Move-Item -Path shadow/[file] -Destination access/
+```
+
+**To shadow (archive):**
+```powershell
+Move-Item -Path access/[file] -Destination shadow/
+```
 
 ### Ending a session
 
-1. `Esc Esc` — exit Zen Mode
-2. Update `access/PROGRESS.md`
-3. Move files back to shadow/ if you're done with them
-4. Open terminal and commit:
+1. Update `access/PROGRESS.md`
+2. Move inactive files back to their folders' `shadow/` subdirectories
+3. Commit:
 
 ```powershell
-git add access/
-git add shadow/
+git add access/ shadow/
 git commit -m "session: what you worked on"
 git push
 ```
@@ -137,11 +125,10 @@ git push
 
 ## Starting a New Chapter
 
-1. Move `shadow/manuscript/chapters/TEMPLATE.md` to `access/`
-2. Rename it: `01-title.md`, `02-title.md`, etc.
-3. Delete the comment block at the top
-4. Write the first sentence
+1. Navigate to `shadow/manuscript/shadow/chapters/`
+2. Copy `TEMPLATE.md`
+3. Rename it: `01-title.md`, `02-title.md`, etc.
+4. Move to `access/` (or a folder's `access/`) while writing
+5. When done, move to `shadow/manuscript/shadow/chapters/`
 
-Start with whichever hour feels most alive — not necessarily Hour 1. The clock is circular. The novel can be assembled in any order.
-
-When the chapter is complete, move it to `shadow/manuscript/chapters/`.
+Start with whichever hour feels most alive. The clock is circular.
