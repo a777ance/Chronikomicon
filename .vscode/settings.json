@@ -9,9 +9,9 @@
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontSize": 16,
-  "editor.lineHeight": 24,
+  "editor.lineHeight": 30,
   "editor.letterSpacing": 0.3,
-  "editor.padding.top": 12,
+  "editor.padding.top": 24,
   "editor.glyphMargin": false,
   "editor.folding": false,
   "editor.overviewRulerLanes": 0,
@@ -34,7 +34,6 @@
 
   // --- Markdown-specific overrides ---
   "[markdown]": {
-    "editor.fontFamily": "Gil Sans MT",
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 80,
     "editor.quickSuggestions": {
