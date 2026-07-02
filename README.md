@@ -164,3 +164,11 @@ git push
 5. When done, move to `shadow/manuscript/shadow/chapters/`
 
 Start with whichever hour feels most alive. The clock is circular.
+
+---
+
+## Patch Notes
+
+### 2026-07-02
+
+_No changes — no pull requests merged on 2026-07-01._
