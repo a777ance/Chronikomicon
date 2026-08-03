@@ -8,8 +8,10 @@ scripts.
 ## Hooks (`.claude/settings.json`)
 
 - **SessionStart → `hooks/refeed.sh`** — on a fresh start or `/clear`, fetches and
-  (guarded) fast-forwards, then injects this repo's lossless briefing manifest so
-  the session runs on the latest docs, not a stale in-context copy.
+  (guarded) fast-forwards the latest **seed** onto disk, then injects the standing
+  context **lazy-anchor-first**: the session opens by acting on the top queue item,
+  loading the rest of the seed as the work demands it (queue-less repos lead with
+  "load, then wait"). The hook file keeps its `refeed.sh` name.
 - **Stop → `hooks/momentum.sh`** — OFF by default. `touch .claude/.momentum-on`
   arms a guarded, self-disarming auto-continue burst; `rm` it to stop. Hard-capped,
   stops on no-progress, and tells the agent to disarm itself the moment it's
@@ -17,8 +19,9 @@ scripts.
 
 ## Commands (`.claude/commands/`)
 
-- **/refeed** — reload the latest briefing manifest from disk (after a clear).
-- **/refresh** — front-door refresh: ask keep-history vs. clear, then refeed.
+- **/reseed** — pull the latest seed (`git pull --ff-only`) then regenerate the
+  briefing from it, mid-session, no clear.
+- **/refresh** — front-door refresh: ask keep-history vs. clear, then pull+reseed.
 - **/cardio**, **/workout** — keyless in-harness self-consistency jury: empanel the
   `juror` subagent several times over and take a plurality. No API key, no spend.
 

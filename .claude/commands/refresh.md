@@ -1,38 +1,40 @@
 ---
-description: Front-door refresh — ask keep-history vs. clear first, then refeed the latest briefing down the chosen path
-allowed-tools: AskUserQuestion, Bash(git fetch:*), Bash(git log:*), Bash(git status:*), Read
+description: Front-door refresh — ask keep-history vs. clear first, then pull+reseed the latest briefing down the chosen path
+allowed-tools: AskUserQuestion, Bash(git fetch:*), Bash(git pull:*), Bash(git log:*), Bash(git status:*), Read
 ---
 
-The user wants this session on the latest briefing. **Ask first — do not clear or
-read anything yet.** This is the gate that a bare `/clear` can't offer (by the time
-`/clear`'s hook runs, the conversation is already gone).
+The user wants this session on the latest seed. **Ask first — do not clear or read
+anything yet.** This is the gate that a bare `/clear` can't offer (by the time `/clear`'s
+hook runs, the conversation is already gone).
 
 ## 1. Ask how (one AskUserQuestion, header "Refresh")
 
-- **Refeed in place (Recommended)** — keep the whole conversation; reload the latest
-  briefing on top of it. Nothing is lost.
-- **Clear + refeed** — wipe the conversation first for a clean slate, then reload.
+- **Reseed in place (Recommended)** — keep the whole conversation; pull the latest seed and
+  regenerate the briefing on top of it. Nothing is lost.
+- **Clear + reseed** — wipe the conversation first for a clean slate, then reload.
   In-flight work in this chat is discarded.
 
-## 2. If "Refeed in place" → do it now, no clear
+## 2. If "Reseed in place" → do it now, no clear
 
-Run the `/refeed` logic directly, conversation intact:
+Run the `/reseed` logic directly, conversation intact — **pull the seed, then read**:
 
-1. `git fetch origin --quiet` (read-only), then compare local vs. remote
-   `README.md` revision (`git log -1 --format='%h %ci' -- README.md` for each).
-2. If remote is ahead of local, stop and say so — the on-disk copy needs
-   `git pull --ff-only` first. Otherwise continue.
-3. Read the manifest in one batch:
+1. `git fetch origin --quiet`, then `git status --short` — the tree must be clean.
+2. `git pull --ff-only` to land the current seed (`origin/main`) on disk (a "refresh"
+   is really a pull; regenerating from a behind-local seed rebuilds a stale world).
+   **Dirty tree or non-fast-forward → do not pull; stop and say so** rather than
+   reseeding stale.
+3. Read the seed in one batch from the now-current tree:
 
 1. `README.md` — the repo's architecture + working model (no `CLAUDE.md`; fractal shadow / bracket-toggle system).
 
-4. Confirm in one line: the loaded `README.md` revision + "refed in place, history
-   kept." Then stop and wait for work.
+4. Confirm in one line: the loaded `README.md` revision + whether the pull
+   fast-forwarded or was already current + "reseeded in place, history kept." Then stop
+   and wait for work.
 
-## 3. If "Clear + refeed" → hand off to /clear
+## 3. If "Clear + reseed" → hand off to /clear
 
 You cannot invoke `/clear` yourself — it's a built-in the user must type. Say exactly:
 
-> Type `/clear` now — the SessionStart hook will auto-run the sync and refeed.
+> Type `/clear` now — the SessionStart hook will auto-run the sync and reseed.
 
-Then stop. Do not read the manifest here; the hook does it on the fresh session.
+Then stop. Do not read the seed here; the hook does it on the fresh session.
