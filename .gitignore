@@ -18,3 +18,7 @@ secrets/
 
 # Note: reference/scripture/*.txt are NOT ignored.
 # They are committed once after running download.py and never modified.
+
+# Momentum loop arm/state (per-session, local — never committed)
+.claude/.momentum-on
+.claude/.momentum-state
