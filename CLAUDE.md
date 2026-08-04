@@ -35,5 +35,6 @@ commands + a plain-language sub-prompt). It is **active from the first token of 
 session, in every repo:** adopt the `~` lazy-anchor posture — fire the first token ASAP
 (the *model* stays high), let continuity coalesce mid-flight — and read Bifrost notation
 per the schema whenever used. Guardrails that survive a keyboard-mash: `~` continuity,
-`$` sanity, `%` compliance. Canonical spec:
-<https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-orchestration/highway-notation.md>
+`$` sanity, `%` compliance. Canonical spec —
+markdown: <https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-orchestration/highway-notation.md>
+· rendered page: <https://a777ance.github.io/localDNS/bifrost.html>
