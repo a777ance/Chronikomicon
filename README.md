@@ -164,3 +164,11 @@ git push
 5. When done, move to `shadow/manuscript/shadow/chapters/`
 
 Start with whichever hour feels most alive. The clock is circular.
+
+---
+
+## 🌈 Bifrost
+
+This repo runs on **[Bifrost](https://a777ance.github.io/localDNS/bifrost.html)** — the
+A777ance keyboard-spatial command-composition schema, active from the first token of every
+session. The canonical spec lives in the public `localDNS` repo.
