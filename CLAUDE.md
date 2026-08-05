@@ -24,6 +24,11 @@ These conventions apply across **every** A777ance repo — current and future. (
 - **Font: Gill Sans MT everywhere.** Every surface — customer-facing or internal — uses
   Gill Sans MT. Web/CSS stack:
   `'Gill Sans MT', 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif`.
+- **Design surfaces inherit all of the above.** The look itself — tokens, the Statement
+  components, and the rules for working on them — lives in `localDNS/design-system/`, and is
+  mirrored into **Claude Design** (claude.ai/design) by `/design-sync`. Take a color or a size
+  from `tokens.css`; never invent one or sample it off a screenshot. Newest-first is a
+  *component behavior* too: a log that renders oldest-first is a bug, not a preference.
 
 ---
 
