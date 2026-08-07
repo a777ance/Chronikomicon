@@ -34,7 +34,77 @@ These conventions apply across **every** A777ance repo — current and future. (
 commands + a plain-language sub-prompt). It is **active from the first token of every
 session, in every repo:** adopt the `~` lazy-anchor posture — fire the first token ASAP
 (the *model* stays high), let continuity coalesce mid-flight — and read Bifrost notation
-per the schema whenever used. Guardrails that survive a keyboard-mash: `~` continuity,
-`$` sanity, `%` compliance. Canonical spec —
+per the schema whenever used. Canonical spec —
 markdown: <https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-orchestration/highway-notation.md>
 · rendered page: <https://a777ance.github.io/localDNS/bifrost.html>
+
+### Decode table — enough to run a string without fetching the spec
+
+| Glyph | Role | Read it as |
+| :-- | :-- | :-- |
+| `~` | Continuity / lazy anchor | The requirement, **and** carry prior context forward. Fire the first token immediately; coalesce mid-flight. More `~` = lazier. No slash command. |
+| `` ` `` | Descriptor | Shaded qualifier, subordinate to `~`. |
+| `!` | Cargo | The **manifest** — *what* is carried. **Not executed on loading**; the road decides when each item acts. |
+| `@` | Source | Read **from** here. |
+| `#` | Repository | Write **to** here (two-way — read back as well). |
+| `$` | Sanity / tollbooth | Validate against the **known-good** baseline. |
+| `%` | Compliance / weigh station | Pre-flight audit — *are we compliant?* |
+| `^` | Cars | Parallel lanes. Count = width; each takes a sub-prompt, so lanes are named. |
+| `&` | Rotary | Nested sub-loop **and** the sequential/deterministic form (commands run in order). |
+| `*` | Stop signal | **Red by default.** Nothing proceeds until governance clears it. |
+| `()` | Governance | The release conditions — **all** must hold. |
+
+**Intensity:** `+` or repetition = stricter (`$+++` ≡ `$$$$`). `-` inverts into a stress test.
+
+**Cars:** explicit `^` always beats inferred. With no `^`, `!`'s command arity instantiates
+lanes 1:1; with `^` present, `^` sets the lanes and `!`'s commands become the per-lane pipeline.
+
+### Dispensations — the unit of composition
+
+A `*` gate cuts the road into chunks, and **a chunk is a Dispensation** — the same object this
+repo's [twelve-hour clock principle](shadow/principles/shadow/01-twelve-hour-clock.md) describes:
+bounded, governed by its own internal logic, its **duration felt rather than measured**, and
+superseded when the hour turns. A Bifrost-compliant command *is* a Dispensation, and
+Dispensations string together — each hands off to the next only through a gate it satisfied.
+
+Governance has **three** outcomes: satisfied → green · **re-flagged → back upstream for
+rewrite** · unsatisfiable → eject. The re-flag path is why a fixed-length string can produce a
+whole book: it states a terminal condition and loops until the gate turns green.
+
+**The one-way door:** `~` rushes the *reasoning*; `*` gates the *effects*. Anything
+irreversible — publishing, pushing to `main` (which triggers the build), sharing a draft — rides
+**past** a light. Everything upstream of a light stays revisable, which is what makes rushing
+the first token safe.
+
+### The standing Chronikon string
+
+```text
+~ Chronikon — continue the novel one Dispensation at a time
+  `awe enacted not announced · embodied · committed to the cosmology · never morose`
+  ! /write /edit /review
+  @ shadow/mindmap/shadow/worldbuilding.md @ shadow/mindmap/shadow/themes.md
+  @ shadow/principles/shadow/01-twelve-hour-clock.md @ shadow/principles/shadow/03-cosmological-core.md
+  # Chronikomicon → shadow/manuscript/shadow/chapters/NN-title.md
+  $ access/CLAUDE.md "Chronikon voice" + the prose checklist
+  $+ 03-cosmological-core.md is SEALED — read freely, never propose edits
+  % scripture quoted verbatim from shadow/reference/shadow/scripture/kjv.txt, never paraphrased
+  ^ cycle-and-return ^ authority-and-holiness ^ memory-loss-and-renewal
+  & /wordcount /progress
+  * 220 words minimum this session (human says continue or stop)
+  * one Dispensation complete (human reviews and annotates; may re-flag for rewrite;
+    duration is FELT — a one-page hour at 6 is correct, not a failure)
+  * 12 chapters · 40,000 words · by 2026-11-30 (human approves each sequentially;
+    a re-flag returns that chapter upstream) ! /share /build
+```
+
+**This string does not override the session-start protocol in
+[`access/CLAUDE.md`](access/CLAUDE.md) — it encodes it.** The innermost gate *is* "write 220
+words, then stop and ask." Show progress, ask one question, wait. A Bifrost string naming twelve
+chapters is a **terminal condition**, never a licence to write twelve chapters unattended, and
+never a reason to hand back a menu of options.
+
+**Reading the `/how` commands.** Bifrost is **notation only — no dispatcher parses it.** Of the
+commands above, only `/wordcount`-style progress is automated (the `session-start.sh` hook);
+`/write`, `/edit`, `/review`, `/share`, `/build`, `/progress` and `/styleguide` are **statements
+of intent**, not slash commands that exist in `.claude/commands/`. Read them as the mechanism
+fulfilling the archetype and do the work directly.
