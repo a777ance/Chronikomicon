@@ -176,7 +176,9 @@ Key shortcuts:
 - Quote scripture verbatim from the reference layer — never paraphrase
 - The manuscript is the only authority. A principle the manuscript doesn't enact doesn't matter.
 
-The global anti-slop guide applies to all prose. See `~/.claude/CLAUDE.md`.
+**The prose checklist below is the operative anti-slop standard for this repo.** (Earlier
+revisions pointed at a portfolio-wide guide at `~/.claude/CLAUDE.md`; no such file exists on
+disk. Its absence is not permission to skip the checklist — run the checklist.)
 
 ---
 
@@ -207,12 +209,21 @@ The themes are **wonder, joy, faith, purpose, existentialism, and the struggle a
 
 ## Branch strategy
 
+**Push to `main`** — founder's standing instruction (2026-08-07). Don't park work on
+feature branches or open PRs for routine changes; land each change as a coherent commit
+straight on `main`.
+
 | Branch | Purpose |
 |--------|---------|
-| `main` | Clean, reviewed work. Build triggers here. |
-| `claude/` | Claude Code working branches. Review diff before merging. |
+| `main` | The working branch. Push here. Build triggers on `manuscript/`. |
 | `experiment/` | Parallel experiments. Never delete. |
 | `draft/` | Full-manuscript revision branches. |
+
+**One exception, and it is the Bifrost one-way door:** a push to `main` touching
+`manuscript/` fires `build.yml` and regenerates the PDF/epub/HTML. That is an effect that
+leaves the system, so it rides *past* a gate — get the human's approval on the prose first,
+then push. Doc-only changes (this file, READMEs, `principles/`) don't trigger a build and
+need no such gate.
 
 ---
 
@@ -220,7 +231,9 @@ The themes are **wonder, joy, faith, purpose, existentialism, and the struggle a
 
 - Build Action passing? (Actions tab)
 - `principles/README.md` index current?
-- Chapter files named `manuscript/chapters/XX-title.md`?
+- Chapter files named `NN-title.md`, on disk at `shadow/manuscript/shadow/chapters/`?
+  (The trees in this file use the conceptual layer names; the fractal access/shadow path is
+  the real one.)
 - No edits to `reference/scripture/kjv.txt` since initial commit?
 
 ---
