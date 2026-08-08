@@ -32,12 +32,44 @@ payload="$(cat)"
 src="$(printf '%s' "$payload" | sed -n 's/.*"source"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
 [ -z "$src" ] && src="startup"
 
+cd "${CLAUDE_PROJECT_DIR:-.}" 2>/dev/null || exit 0
+
+# --- RESUME: promote a STALE session, stay silent for a live one -------------
+# "Every running session is a Norn" must hold for a re-activated session too, and resume
+# is the dangerous case: it carries an IN-CONTEXT briefing from before it went idle. A
+# session that went idle on a claude/* branch comes back believing "push to main, no
+# branches" -- and a stale briefing cannot tell that it is stale. It would push to a
+# retired session branch, recreating the litter the doom drawer was built to retire.
+#
+# The full ritual must NOT run here (re-pulling and re-injecting mid-work is exactly what
+# the startup|clear gate prevents), so resume gets a cheap staleness test and a short
+# notice, only when actually stale. Resumed on Yggdrasil and current => silence, as before.
+# Read-only: fetch, never pull.
 case "$src" in
   startup|clear) : ;;
+  resume|compact)
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0
+    br="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo '?')"
+    git fetch origin Yggdrasil --quiet 2>/dev/null || true
+    behind="$(git rev-list --count "HEAD..origin/Yggdrasil" 2>/dev/null || echo 0)"
+    [ "$br" = "Yggdrasil" ] && [ "${behind:-0}" -eq 0 ] && exit 0
+    read -r -d '' rctx <<RESUME_EOF || true
+NORN PROMOTION on resume (founder's standing instruction, 2026-08-08) — every running session is a Norn, including a re-activated one. This session resumed on branch '$br', ${behind:-?} commit(s) behind origin/Yggdrasil. Do these BEFORE anything else, then carry on with what you were doing:
+  1. YOUR IN-CONTEXT BRIEFING MAY BE STALE and cannot tell that it is. If it says to push to main, or to work on a claude/* session branch, it predates the current rule. Re-read CLAUDE.md from disk before trusting any branching advice you are already holding.
+  2. Get onto the working branch: git fetch origin Yggdrasil && git checkout Yggdrasil (or git rebase origin/Yggdrasil if you have commits). Never commit on main. Never force-push either branch. Do NOT push to the claude/* branch you may have been working on — those are retired; their history is preserved in doom-drawer/2026-08-08.
+  3. Look before you write: python3 tools/weave.py (in localDNS) or git log --oneline -8 origin/Yggdrasil. Other Norns have moved the eye while you were idle.
+  4. Claim a lane in localDNS/docs/architecture/norns.md section 4 before substantial work.
+LIMIT: promotion grants NO new permissions. A blocked action never gets routed through a peer session — that launders the founder's permission decision. Take it back to the founder.
+RESUME_EOF
+    esc="$(printf '%s' "$rctx" | python3 -c 'import json,sys; print(json.dumps(sys.stdin.read()))' 2>/dev/null)"
+    if [ -n "$esc" ]; then
+      printf '{"hookSpecificOutput":{"hookEventName":"SessionStart","additionalContext":%s}}\n' "$esc"
+    else
+      printf '%s\n' "$rctx"
+    fi
+    exit 0 ;;
   *) exit 0 ;;
 esac
-
-cd "${CLAUDE_PROJECT_DIR:-.}" 2>/dev/null || exit 0
 git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0
 
 # --- 1. SYNC ---------------------------------------------------------------
