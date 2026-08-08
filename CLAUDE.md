@@ -36,11 +36,30 @@ session, in every repo:** adopt the `~` lazy-anchor posture — fire the first t
 (the *model* stays high), let continuity coalesce mid-flight — and read Bifrost notation
 per the schema whenever used.
 
-- **Backbone:** `~` continuity/lazy-anchor · `` ` `` descriptor · `!` cargo (a *manifest* —
-  not executed on loading) · `@` source (read from) · `#` repo/destination (write to) ·
-  `$` sanity · `%` compliance · `^` cars/lanes · `&` rotary (also the sequential form) ·
-  `*` stop signal (red by default) · `()` governance (release conditions). Keys 1–4
-  **Preload** form a complete manifest — *what · from where · to where · against what*.
+- **Backbone:** `'` ignition (begins the Bifrost) · `~` continuity/lazy-anchor · `` ` ``
+  descriptor · `!` cargo (a *manifest* — not executed on loading) · `@` source (read from) ·
+  `#` repo/destination (write to) · `$` sanity · `%` compliance · `^` cars/lanes · `&` rotary
+  (also the sequential form) · `*` stop signal (red by default) · `()` governance (release
+  conditions). Off-row `'`/`~`/`` ` `` stage; keys 1–4 **Preload** form a complete manifest —
+  *what · from where · to where · against what*.
+- **`'` is always the signal to begin the Bifrost** (founder's rule, 2026-08-07 — fixes a
+  mobile bug). Treat `'`, `’` (curly) and `′` as one glyph, and treat **presence and
+  absence as the same string**: `' ~ !…` ≡ `~ !…`, `''` ≡ `'`. It marks *where* the Bifrost
+  starts, never *what* runs — no sub-prompt, no `/how`, no intensity dial, `0` turbulence. A
+  letter-flanked `'` (`don't`, `founder's`) is prose in a sub-prompt, not an ignition; only a
+  free-standing `'` ignites. Never ask which apostrophe the phone chose.
+- **A bare `'` (the whole message) = the reference call. Return this string and NOTHING else:**
+
+  ```text
+  ~!@#$%^&*()
+  ```
+
+  It is **the sweep itself** — exactly what sliding a finger down the row on a laptop puts on
+  the screen. Not a legend, not a glossary, not a table: the row. So it is a **lookup, not a
+  generation** — same bytes every call, every session, every model. No preamble, no trailing
+  offer, no adaptation to the conversation. Answer *immediately*; it reads no file and fires no
+  cargo. Glyph *meanings* live in the backbone above; the reference call hands back the
+  **order**, which is the thing a phone cannot sweep for itself.
 - **`*` cuts the road into Dispensations** — bounded, self-governing chunks. Governance has
   three outcomes: satisfied → green · **re-flagged** → return upstream via `&` (this is what
   lets a fixed string produce unbounded output) · unsatisfiable → eject to the shoulder.
@@ -61,6 +80,7 @@ markdown: <https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-or
 
 | Glyph | Role | Read it as |
 | :-- | :-- | :-- |
+| `'` | Ignition | Begins the Bifrost. Optional by construction — presence and absence are the same string. No sub-prompt, no dial, `0` turbulence. A **bare `'`** alone is the reference call: return `~!@#$%^&*()` and nothing else. |
 | `~` | Continuity / lazy anchor | The requirement, **and** carry prior context forward. Fire the first token immediately; coalesce mid-flight. More `~` = lazier. No slash command. |
 | `` ` `` | Descriptor | Shaded qualifier, subordinate to `~`. |
 | `!` | Cargo | The **manifest** — *what* is carried. **Not executed on loading**; the road decides when each item acts. |
