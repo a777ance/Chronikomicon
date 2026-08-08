@@ -37,11 +37,18 @@ session, in every repo:** adopt the `~` lazy-anchor posture — fire the first t
 per the schema whenever used.
 
 - **Backbone:** `'` ignition (begins the Bifrost) · `~` continuity/lazy-anchor · `` ` ``
-  descriptor · `!` cargo (a *manifest* — not executed on loading) · `@` source (read from) ·
-  `#` repo/destination (write to) · `$` sanity · `%` compliance · `^` cars/lanes · `&` rotary
-  (also the sequential form) · `*` stop signal (red by default) · `()` governance (release
+  descriptor (and, bare, the *expansion call*) · `!` cargo (a *manifest* — not executed on
+  loading) · `@` source — **read-only** · `#` repo/destination — **write-allowed** · `$` sanity ·
+  `%` compliance · `^` cars/lanes · `&` rotary — the **rabbit trail**, a nested Bifrost (also
+  the sequential form) · `*` stop signal (red by default) · `()` governance (release
   conditions). Off-row `'`/`~`/`` ` `` stage; keys 1–4 **Preload** form a complete manifest —
   *what · from where · to where · against what*.
+- **`@`/`#` are a permission pair, not a pair of arrows** (founder's rule, 2026-08-08). `@` is
+  **read-only** — read it, never write it. `#` is **write-allowed** — what this run may create,
+  modify or overwrite (still two-way). **They may overlap:** `@` alone = read-only, `#` alone =
+  writable, both = read-write. Two slots, three states, one **mount table**. `@` still reads and
+  `#` still writes, so every string already written stays valid — this only *adds* the guardrail,
+  and gives the one-way door a question with an answer: *is every write inside `#`?*
 - **`'` is always the signal to begin the Bifrost** (founder's rule, 2026-08-07 — fixes a
   mobile bug). Treat `'`, `’` (curly) and `′` as one glyph, and treat **presence and
   absence as the same string**: `' ~ !…` ≡ `~ !…`, `''` ≡ `'`. It marks *where* the Bifrost
@@ -60,6 +67,37 @@ per the schema whenever used.
   offer, no adaptation to the conversation. Answer *immediately*; it reads no file and fires no
   cargo. Glyph *meanings* live in the backbone above; the reference call hands back the
   **order**, which is the thing a phone cannot sweep for itself.
+- **A bare descriptor — `` `…` `` with no backbone glyph in the message — is the *expansion
+  call*.** The backticked text is a **seed**, and the answer is one complete, schema-compliant
+  line with **every backbone slot filled in**, for the founder to read, parse and tweak:
+
+  ```text
+  ~ (fill in) ! (fill in) @ (fill in) # (fill in) $ (fill in) % (fill in) ^ (fill in) & (fill in) * (fill in) ( (fill in) )
+  ```
+
+  **The skeleton is the sweep, spaced** — strike the `(fill in)` slots and the whitespace and
+  `~!@#$%^&*()` remains. `'` hands back the **order**; `` `seed` `` hands back the order **with
+  the slots filled**. Echo the seed back on the `` ` `` line; fill **every** slot, never drop one
+  (a complete draft is edited *down*); emit in Golden Rule order, so `K = 0` by construction;
+  **`*` comes back RED, always** — an expansion is a *proposal*, nothing ran and no `#` was
+  touched; and **collapse it** — where the surface renders HTML, ship it inside a `<details>`
+  whose `<summary>` is the `~` requirement line. With a backbone glyph present, `` ` `` is the
+  ordinary descriptor, unchanged. An empty descriptor returns the sweep. Unlike the bare `'`
+  (a constant), an expansion **generates** — so the selector matters, and here it is the
+  **human at the `*` gate**, not a vote.
+- **`` ` `` and `&` are the same operation — nesting, at two positions** (founder's rule,
+  2026-08-08). `&` is the **rabbit trail**: a digression you *come back from*, opening another
+  full Bifrost inside this one. `` ` `` nests at staging, `&` nests on the road —
+  `` `seed` `` ≡ `& seed` hoisted to position zero, which is why a bare descriptor can generate
+  a line at all. So **expansion is recursive by construction**, and `&`'s "sequential" reading
+  is just nesting seen from the parent's frame.
+- **The greater traffic light is always the last bulwark** (founder's rule, 2026-08-08). Every
+  nest **adds** a light; none removes one. An inner `*` going green releases its chunk **into
+  its parent**, never into the world — only the outermost `*` stands between a `!` and an
+  effect that cannot be recalled, however many inner gates already cleared. **Permissions
+  intersect inward, gates conjoin outward:** a nested road may never write outside its parent's
+  `#`, nor release past its parent's `*`. That is what lets `~` stay reckless at any depth —
+  nesting multiplies the reasoning, never the exposure.
 - **`*` cuts the road into Dispensations** — bounded, self-governing chunks. Governance has
   three outcomes: satisfied → green · **re-flagged** → return upstream via `&` (this is what
   lets a fixed string produce unbounded output) · unsatisfiable → eject to the shoulder.
@@ -82,14 +120,14 @@ markdown: <https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-or
 | :-- | :-- | :-- |
 | `'` | Ignition | Begins the Bifrost. Optional by construction — presence and absence are the same string. No sub-prompt, no dial, `0` turbulence. A **bare `'`** alone is the reference call: return `~!@#$%^&*()` and nothing else. |
 | `~` | Continuity / lazy anchor | The requirement, **and** carry prior context forward. Fire the first token immediately; coalesce mid-flight. More `~` = lazier. No slash command. |
-| `` ` `` | Descriptor | Shaded qualifier, subordinate to `~`. |
+| `` ` `` | Descriptor | Shaded qualifier, subordinate to `~`. **Bare** (backticked text, no backbone glyph in the message) it is the **expansion call**: a seed that returns a whole filled-in line. Same operation as `&` — nesting, at staging instead of on the road. |
 | `!` | Cargo | The **manifest** — *what* is carried. **Not executed on loading**; the road decides when each item acts. |
-| `@` | Source | Read **from** here. |
-| `#` | Repository | Write **to** here (two-way — read back as well). |
+| `@` | Source — **read-only** | Read **from** here, and **never write here**. |
+| `#` | Repository — **write-allowed** | May be created, modified, **overwritten** (two-way — read back as well). May overlap `@`. |
 | `$` | Sanity / tollbooth | Validate against the **known-good** baseline. |
 | `%` | Compliance / weigh station | Pre-flight audit — *are we compliant?* |
 | `^` | Cars | Parallel lanes. Count = width; each takes a sub-prompt, so lanes are named. |
-| `&` | Rotary | Nested sub-loop **and** the sequential/deterministic form (commands run in order). |
+| `&` | Rotary — the **rabbit trail** | Opens **another whole Bifrost inside this one** — a digression you *come back from*. Also the sequential/deterministic form (commands run in order), which is the same thing seen from the parent's frame. |
 | `*` | Stop signal | **Red by default.** Nothing proceeds until governance clears it. |
 | `()` | Governance | The release conditions — **all** must hold. |
 
@@ -114,6 +152,17 @@ whole book: it states a terminal condition and loops until the gate turns green.
 irreversible — publishing, pushing to `main` (which triggers the build), sharing a draft — rides
 **past** a light. Everything upstream of a light stays revisable, which is what makes rushing
 the first token safe.
+
+**The greater traffic light is always the last bulwark.** Because `&` and a bare `` ` `` both
+open a whole Bifrost *inside* this one, Dispensations nest — and every nest **adds** a light,
+never removes one. An inner `*` going green releases its chunk **into its parent**, not into
+the world; only the outermost gate stands between a draft and a reader. For this repo that is
+concrete: a chapter can satisfy its own gate all it likes and still not be published, because
+the book gate (`* 12 chapters · 40,000 words`) is downstream of it and the human holds it.
+**Permissions intersect inward, gates conjoin outward** — a nested road may never write outside
+its parent's `#` (so a rabbit trail down a theme cannot touch the SEALED cosmological core), nor
+release past its parent's `*`. That is what lets `~` stay reckless at any depth: nesting
+multiplies the reasoning, never the exposure.
 
 ### The standing Chronikon string
 
