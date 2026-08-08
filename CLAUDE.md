@@ -200,3 +200,37 @@ commands above, only `/wordcount`-style progress is automated (the `session-star
 `/write`, `/edit`, `/review`, `/share`, `/build`, `/progress` and `/styleguide` are **statements
 of intent**, not slash commands that exist in `.claude/commands/`. Read them as the mechanism
 fulfilling the archetype and do the work directly.
+
+---
+
+## Branch policy — Yggdrasil and the Well of Mimir
+
+<!-- branch-policy:start — GENERATED from localDNS/04-user-services/ai-orchestration/branch-policy-block.md by tools/sync-briefings.py. Do not hand-edit; edit the canonical file and re-run. -->
+
+**`Yggdrasil` is the one standing working branch. Always push there, never to `main`.**
+Founder's standing instruction (2026-08-08), superseding "push to `main`, no branches"
+(2026-06-05).
+
+- **One super-branch for the whole portfolio**, in every repo — no per-session branches.
+  The branch-per-session habit is what produced 337 stale `claude/*` branches, 226 of them
+  carrying commits that exist nowhere else.
+- **`main` is the Well of Mimir** — vetted knowledge. It moves only by a pull request the
+  founder approves. No cadence, no auto-merge: the Well fills when the founder decides it
+  does. This is the Bifrost one-way door at portfolio scale — `main` is the outermost `*`,
+  and no inner gate may release past it.
+- **The spring is the founder, and it is out of scope for the machine.** An analog signal
+  nothing here can sample or verify against. Yggdrasil and the Well are *channels*, not
+  sources; every file in a repo is **transmission**, and transmission never promotes. A
+  green check proves transcripts agree with **each other** — never that they agree with the
+  founder. Only asking closes that gap.
+- **Never overwrite doctrine.** Pull with `--ff-only` and nothing else — a fast-forward can
+  only *add* commits, where a merge, rebase, or reset can silently rewrite founder-authored
+  text. A session transcribes doctrine; it does not author it.
+- **The tree is bigger than GitHub.** Yggdrasil spans the interacting systems — the t630
+  stack, the LLM router, the NotebookLM bridge, Stripe, Setmore, the CRM — and GitHub is
+  one root-well it drinks from.
+
+**Push:** always `git push -u origin Yggdrasil`; retry with backoff on network failure.
+Never `git push` to `main`, and never force-push either branch.
+
+<!-- branch-policy:end -->
