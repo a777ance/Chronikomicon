@@ -29,6 +29,8 @@ These conventions apply across **every** A777ance repo — current and future. (
 
 ## Bifrost — active command schema (loads every session)
 
+<!-- bifrost-briefing:start — GENERATED from localDNS/04-user-services/ai-orchestration/briefing-block.md by tools/sync-briefings.py. Do not hand-edit; edit the canonical file and re-run. -->
+
 **Bifrost** is the A777ance command-composition schema — a keyboard-spatial notation
 (`~ ! @ # $ % ^ & * ()` swept left→right, each glyph an *archetype* fulfilled by slash
 commands + a plain-language sub-prompt). It is **active from the first token of every
@@ -75,6 +77,8 @@ per the schema whenever used.
 Canonical spec —
 markdown: <https://github.com/a777ance/localDNS/blob/main/04-user-services/ai-orchestration/highway-notation.md>
 · rendered page: <https://a777ance.github.io/localDNS/bifrost.html>
+
+<!-- bifrost-briefing:end -->
 
 ### Decode table — enough to run a string without fetching the spec
 
